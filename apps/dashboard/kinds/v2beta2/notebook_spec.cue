@@ -1,9 +1,16 @@
-package v2beta1
+package v2beta2
 
-// Notebook-only schema types. These live in the dashboard v2beta1 package so they can reuse the
-// shared dashboard leaf types (PanelKind, LibraryPanelKind, TimeSettingsSpec, ElementReference)
-// WITHOUT being added to DashboardSpec's own element/layout unions. "Share the leaf types, diverge
-// on the composition" — the dashboard schema never learns about Cell or NotebookLayout.
+// Notebook-only schema types. They reuse the dashboard leaf types (PanelKind, LibraryPanelKind,
+// TimeSettingsSpec, ElementReference) copied into this package from dashboard v2, WITHOUT being
+// added to DashboardSpec's own element/layout unions. "Share the leaf types, diverge on the
+// composition" — the dashboard schema never learns about Cell or NotebookLayout, and a notebook
+// spec stays 1:1 with a dashboard v2 spec apart from the layout, so no NotebookSpec → DashboardSpec
+// bridge is needed.
+//
+// Notebook is served at v2beta2 rather than v2 because the schema is still experimental: v2 is GA
+// and must not take breaking schema changes. dashboard_spec.cue in this package is a generated copy
+// of the v2 one (see the Makefile), because the SDK only resolves references within the CUE package
+// named after the manifest version.
 
 // A cell holds non-panel narrative content (markdown text, code) in a notebook layout.
 // Panel cells are not represented here — they reuse PanelKind.

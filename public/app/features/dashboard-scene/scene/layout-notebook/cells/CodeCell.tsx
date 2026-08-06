@@ -1,4 +1,4 @@
-import { type CellContentKind } from '@grafana/schema/apis/notebook/v2beta1';
+import { type CellContentKind } from '@grafana/schema/apis/notebook/v2beta2';
 import { CodeEditor } from '@grafana/ui';
 
 const LINE_HEIGHT = 18;

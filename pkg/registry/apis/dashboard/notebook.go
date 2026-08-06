@@ -3,7 +3,7 @@ package dashboard
 import (
 	"fmt"
 
-	dashv2beta1 "github.com/grafana/grafana/apps/dashboard/pkg/apis/dashboard/v2beta1"
+	dashv2beta2 "github.com/grafana/grafana/apps/dashboard/pkg/apis/dashboard/v2beta2"
 )
 
 // notebookLayoutKind is the only layout kind a Notebook may use. The generated
@@ -11,7 +11,7 @@ import (
 // carry a dashboard layout kind (e.g. GridLayout); this is rejected at admission.
 const notebookLayoutKind = "NotebookLayout"
 
-func validateNotebook(notebook *dashv2beta1.Notebook) error {
+func validateNotebook(notebook *dashv2beta2.Notebook) error {
 	if notebook == nil {
 		return fmt.Errorf("notebook payload is required")
 	}

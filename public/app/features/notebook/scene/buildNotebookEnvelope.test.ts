@@ -1,11 +1,11 @@
-import { type Spec as NotebookSpec, defaultSpec as defaultNotebookSpec } from '@grafana/schema/apis/notebook/v2beta1';
+import { type Spec as NotebookSpec, defaultSpec as defaultNotebookSpec } from '@grafana/schema/apis/notebook/v2beta2';
 import { type Resource } from 'app/features/apiserver/types';
 
 import { buildNotebookEnvelope } from './buildNotebookEnvelope';
 
 function notebookResource(): Resource<NotebookSpec> {
   return {
-    apiVersion: 'dashboard.grafana.app/v2beta1',
+    apiVersion: 'dashboard.grafana.app/v2beta2',
     kind: 'Notebook',
     metadata: {
       name: 'nb-1',

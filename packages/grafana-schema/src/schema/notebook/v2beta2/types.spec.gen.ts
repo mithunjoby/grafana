@@ -245,22 +245,22 @@ export const defaultDataQueryKind = (): DataQueryKind => ({
 });
 
 export interface TransformationKind {
-	// The kind of a TransformationKind is the transformation ID
-	kind: string;
-	spec: DataTransformerConfig;
+	kind: "Transformation";
+	// The group is the transformation ID
+	group: string;
+	spec: TransformationSpec;
 }
 
 export const defaultTransformationKind = (): TransformationKind => ({
-	kind: "",
-	spec: defaultDataTransformerConfig(),
+	kind: "Transformation",
+	group: "",
+	spec: defaultTransformationSpec(),
 });
 
 // Transformations allow to manipulate data returned by a query before the system applies a visualization.
 // Using transformations you can: rename fields, join time series data, perform mathematical operations across queries,
 // use the output of one transformation as the input to another transformation, etc.
-export interface DataTransformerConfig {
-	// Unique identifier of transformer
-	id: string;
+export interface TransformationSpec {
 	// Disabled transformations are skipped
 	disabled?: boolean;
 	// Optional frame matcher. When missing it will be applied to all results
@@ -272,8 +272,7 @@ export interface DataTransformerConfig {
 	options: any;
 }
 
-export const defaultDataTransformerConfig = (): DataTransformerConfig => ({
-	id: "",
+export const defaultTransformationSpec = (): TransformationSpec => ({
 	options: {},
 });
 

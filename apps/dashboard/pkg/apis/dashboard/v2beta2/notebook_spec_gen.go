@@ -1,6 +1,6 @@
 // Code generated - EDITING IS FUTILE. DO NOT EDIT.
 
-package v2beta1
+package v2beta2
 
 import (
 	json "encoding/json"
@@ -54,7 +54,7 @@ func NewNotebookTimeSettingsSpec() *NotebookTimeSettingsSpec {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookTimeSettingsSpec.
 func (NotebookTimeSettingsSpec) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookTimeSettingsSpec"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookTimeSettingsSpec"
 }
 
 // +k8s:openapi-gen=true
@@ -75,7 +75,7 @@ func NewNotebookTimeRangeOption() *NotebookTimeRangeOption {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookTimeRangeOption.
 func (NotebookTimeRangeOption) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookTimeRangeOption"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookTimeRangeOption"
 }
 
 // A notebook element is a narrative cell, a panel, or a library panel. Unlike the dashboard
@@ -107,7 +107,7 @@ func NewNotebookCellKind() *NotebookCellKind {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookCellKind.
 func (NotebookCellKind) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookCellKind"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookCellKind"
 }
 
 // +k8s:openapi-gen=true
@@ -124,7 +124,7 @@ func NewNotebookCellSpec() *NotebookCellSpec {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookCellSpec.
 func (NotebookCellSpec) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookCellSpec"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookCellSpec"
 }
 
 // Pluggable cell content discriminated by `kind`. New content types are added
@@ -153,7 +153,7 @@ func NewNotebookMarkdownCellContentKind() *NotebookMarkdownCellContentKind {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookMarkdownCellContentKind.
 func (NotebookMarkdownCellContentKind) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookMarkdownCellContentKind"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookMarkdownCellContentKind"
 }
 
 // +k8s:openapi-gen=true
@@ -168,7 +168,7 @@ func NewNotebookMarkdownCellContentSpec() *NotebookMarkdownCellContentSpec {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookMarkdownCellContentSpec.
 func (NotebookMarkdownCellContentSpec) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookMarkdownCellContentSpec"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookMarkdownCellContentSpec"
 }
 
 // +k8s:openapi-gen=true
@@ -187,7 +187,7 @@ func NewNotebookCodeCellContentKind() *NotebookCodeCellContentKind {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookCodeCellContentKind.
 func (NotebookCodeCellContentKind) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookCodeCellContentKind"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookCodeCellContentKind"
 }
 
 // +k8s:openapi-gen=true
@@ -205,7 +205,7 @@ func NewNotebookCodeCellContentSpec() *NotebookCodeCellContentSpec {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookCodeCellContentSpec.
 func (NotebookCodeCellContentSpec) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookCodeCellContentSpec"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookCodeCellContentSpec"
 }
 
 // +k8s:openapi-gen=true
@@ -224,7 +224,7 @@ func NewNotebookPanelKind() *NotebookPanelKind {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookPanelKind.
 func (NotebookPanelKind) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookPanelKind"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookPanelKind"
 }
 
 // +k8s:openapi-gen=true
@@ -252,7 +252,7 @@ func NewNotebookPanelSpec() *NotebookPanelSpec {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookPanelSpec.
 func (NotebookPanelSpec) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookPanelSpec"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookPanelSpec"
 }
 
 // +k8s:openapi-gen=true
@@ -269,7 +269,7 @@ func NewNotebookDataLink() *NotebookDataLink {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookDataLink.
 func (NotebookDataLink) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookDataLink"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookDataLink"
 }
 
 // +k8s:openapi-gen=true
@@ -288,7 +288,7 @@ func NewNotebookQueryGroupKind() *NotebookQueryGroupKind {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookQueryGroupKind.
 func (NotebookQueryGroupKind) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookQueryGroupKind"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookQueryGroupKind"
 }
 
 // +k8s:openapi-gen=true
@@ -309,7 +309,7 @@ func NewNotebookQueryGroupSpec() *NotebookQueryGroupSpec {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookQueryGroupSpec.
 func (NotebookQueryGroupSpec) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookQueryGroupSpec"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookQueryGroupSpec"
 }
 
 // +k8s:openapi-gen=true
@@ -328,7 +328,7 @@ func NewNotebookPanelQueryKind() *NotebookPanelQueryKind {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookPanelQueryKind.
 func (NotebookPanelQueryKind) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookPanelQueryKind"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookPanelQueryKind"
 }
 
 // +k8s:openapi-gen=true
@@ -348,7 +348,7 @@ func NewNotebookPanelQuerySpec() *NotebookPanelQuerySpec {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookPanelQuerySpec.
 func (NotebookPanelQuerySpec) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookPanelQuerySpec"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookPanelQuerySpec"
 }
 
 // +k8s:openapi-gen=true
@@ -359,7 +359,7 @@ type NotebookDataQueryKind struct {
 	Labels  map[string]string `json:"labels,omitempty"`
 	// New type for datasource reference
 	// Not creating a new type until we figure out how to handle DS refs for group by, adhoc, and every place that uses DataSourceRef in TS.
-	Datasource *NotebookV2beta1DataQueryKindDatasource `json:"datasource,omitempty"`
+	Datasource *NotebookV2beta2DataQueryKindDatasource `json:"datasource,omitempty"`
 	Spec       map[string]interface{}                  `json:"spec"`
 }
 
@@ -374,35 +374,35 @@ func NewNotebookDataQueryKind() *NotebookDataQueryKind {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookDataQueryKind.
 func (NotebookDataQueryKind) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookDataQueryKind"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookDataQueryKind"
 }
 
 // +k8s:openapi-gen=true
 type NotebookTransformationKind struct {
-	// The kind of a TransformationKind is the transformation ID
-	Kind string                        `json:"kind"`
-	Spec NotebookDataTransformerConfig `json:"spec"`
+	Kind string `json:"kind"`
+	// The group is the transformation ID
+	Group string                     `json:"group"`
+	Spec  NotebookTransformationSpec `json:"spec"`
 }
 
 // NewNotebookTransformationKind creates a new NotebookTransformationKind object.
 func NewNotebookTransformationKind() *NotebookTransformationKind {
 	return &NotebookTransformationKind{
-		Spec: *NewNotebookDataTransformerConfig(),
+		Kind: "Transformation",
+		Spec: *NewNotebookTransformationSpec(),
 	}
 }
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookTransformationKind.
 func (NotebookTransformationKind) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookTransformationKind"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookTransformationKind"
 }
 
 // Transformations allow to manipulate data returned by a query before the system applies a visualization.
 // Using transformations you can: rename fields, join time series data, perform mathematical operations across queries,
 // use the output of one transformation as the input to another transformation, etc.
 // +k8s:openapi-gen=true
-type NotebookDataTransformerConfig struct {
-	// Unique identifier of transformer
-	Id string `json:"id"`
+type NotebookTransformationSpec struct {
 	// Disabled transformations are skipped
 	Disabled *bool `json:"disabled,omitempty"`
 	// Optional frame matcher. When missing it will be applied to all results
@@ -414,14 +414,14 @@ type NotebookDataTransformerConfig struct {
 	Options interface{} `json:"options"`
 }
 
-// NewNotebookDataTransformerConfig creates a new NotebookDataTransformerConfig object.
-func NewNotebookDataTransformerConfig() *NotebookDataTransformerConfig {
-	return &NotebookDataTransformerConfig{}
+// NewNotebookTransformationSpec creates a new NotebookTransformationSpec object.
+func NewNotebookTransformationSpec() *NotebookTransformationSpec {
+	return &NotebookTransformationSpec{}
 }
 
-// OpenAPIModelName returns the OpenAPI model name for NotebookDataTransformerConfig.
-func (NotebookDataTransformerConfig) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookDataTransformerConfig"
+// OpenAPIModelName returns the OpenAPI model name for NotebookTransformationSpec.
+func (NotebookTransformationSpec) OpenAPIModelName() string {
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookTransformationSpec"
 }
 
 // Matcher is a predicate configuration. Based on the config a set of field(s) or values is filtered in order to apply override / transformation.
@@ -445,7 +445,7 @@ func NewNotebookMatcherConfig() *NotebookMatcherConfig {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookMatcherConfig.
 func (NotebookMatcherConfig) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookMatcherConfig"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookMatcherConfig"
 }
 
 // +k8s:openapi-gen=true
@@ -460,7 +460,7 @@ const (
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookMatcherScope.
 func (NotebookMatcherScope) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookMatcherScope"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookMatcherScope"
 }
 
 // A topic is attached to DataFrame metadata in query results.
@@ -476,7 +476,7 @@ const (
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookDataTopic.
 func (NotebookDataTopic) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookDataTopic"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookDataTopic"
 }
 
 // +k8s:openapi-gen=true
@@ -498,7 +498,7 @@ func NewNotebookQueryOptionsSpec() *NotebookQueryOptionsSpec {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookQueryOptionsSpec.
 func (NotebookQueryOptionsSpec) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookQueryOptionsSpec"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookQueryOptionsSpec"
 }
 
 // +k8s:openapi-gen=true
@@ -520,7 +520,7 @@ func NewNotebookVizConfigKind() *NotebookVizConfigKind {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookVizConfigKind.
 func (NotebookVizConfigKind) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookVizConfigKind"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookVizConfigKind"
 }
 
 // --- Kinds ---
@@ -540,7 +540,7 @@ func NewNotebookVizConfigSpec() *NotebookVizConfigSpec {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookVizConfigSpec.
 func (NotebookVizConfigSpec) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookVizConfigSpec"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookVizConfigSpec"
 }
 
 // The data model used in Grafana, namely the data frame, is a columnar-oriented table structure that unifies both time series and table query results.
@@ -551,20 +551,20 @@ type NotebookFieldConfigSource struct {
 	// Defaults are the options applied to all fields.
 	Defaults NotebookFieldConfig `json:"defaults"`
 	// Overrides are the options applied to specific fields overriding the defaults.
-	Overrides []NotebookV2beta1FieldConfigSourceOverrides `json:"overrides"`
+	Overrides []NotebookV2beta2FieldConfigSourceOverrides `json:"overrides"`
 }
 
 // NewNotebookFieldConfigSource creates a new NotebookFieldConfigSource object.
 func NewNotebookFieldConfigSource() *NotebookFieldConfigSource {
 	return &NotebookFieldConfigSource{
 		Defaults:  *NewNotebookFieldConfig(),
-		Overrides: []NotebookV2beta1FieldConfigSourceOverrides{},
+		Overrides: []NotebookV2beta2FieldConfigSourceOverrides{},
 	}
 }
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookFieldConfigSource.
 func (NotebookFieldConfigSource) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookFieldConfigSource"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookFieldConfigSource"
 }
 
 // The data model used in Grafana, namely the data frame, is a columnar-oriented table structure that unifies both time series and table query results.
@@ -638,7 +638,7 @@ func NewNotebookFieldConfig() *NotebookFieldConfig {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookFieldConfig.
 func (NotebookFieldConfig) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookFieldConfig"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookFieldConfig"
 }
 
 // +k8s:openapi-gen=true
@@ -668,7 +668,7 @@ func NewNotebookValueMap() *NotebookValueMap {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookValueMap.
 func (NotebookValueMap) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookValueMap"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookValueMap"
 }
 
 // Supported value mapping types
@@ -688,7 +688,7 @@ const (
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookMappingType.
 func (NotebookMappingType) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookMappingType"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookMappingType"
 }
 
 // Result used as replacement with text and color when the value matches
@@ -711,7 +711,7 @@ func NewNotebookValueMappingResult() *NotebookValueMappingResult {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookValueMappingResult.
 func (NotebookValueMappingResult) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookValueMappingResult"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookValueMappingResult"
 }
 
 // Maps numerical ranges to a display text and color.
@@ -720,20 +720,20 @@ func (NotebookValueMappingResult) OpenAPIModelName() string {
 type NotebookRangeMap struct {
 	Type NotebookMappingType `json:"type"`
 	// Range to match against and the result to apply when the value is within the range
-	Options NotebookV2beta1RangeMapOptions `json:"options"`
+	Options NotebookV2beta2RangeMapOptions `json:"options"`
 }
 
 // NewNotebookRangeMap creates a new NotebookRangeMap object.
 func NewNotebookRangeMap() *NotebookRangeMap {
 	return &NotebookRangeMap{
 		Type:    NotebookMappingTypeRange,
-		Options: *NewNotebookV2beta1RangeMapOptions(),
+		Options: *NewNotebookV2beta2RangeMapOptions(),
 	}
 }
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookRangeMap.
 func (NotebookRangeMap) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookRangeMap"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookRangeMap"
 }
 
 // Maps regular expressions to replacement text and a color.
@@ -742,20 +742,20 @@ func (NotebookRangeMap) OpenAPIModelName() string {
 type NotebookRegexMap struct {
 	Type NotebookMappingType `json:"type"`
 	// Regular expression to match against and the result to apply when the value matches the regex
-	Options NotebookV2beta1RegexMapOptions `json:"options"`
+	Options NotebookV2beta2RegexMapOptions `json:"options"`
 }
 
 // NewNotebookRegexMap creates a new NotebookRegexMap object.
 func NewNotebookRegexMap() *NotebookRegexMap {
 	return &NotebookRegexMap{
 		Type:    NotebookMappingTypeRegex,
-		Options: *NewNotebookV2beta1RegexMapOptions(),
+		Options: *NewNotebookV2beta2RegexMapOptions(),
 	}
 }
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookRegexMap.
 func (NotebookRegexMap) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookRegexMap"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookRegexMap"
 }
 
 // Maps special values like Null, NaN (not a number), and boolean values like true and false to a display text and color.
@@ -764,20 +764,20 @@ func (NotebookRegexMap) OpenAPIModelName() string {
 // +k8s:openapi-gen=true
 type NotebookSpecialValueMap struct {
 	Type    NotebookMappingType                   `json:"type"`
-	Options NotebookV2beta1SpecialValueMapOptions `json:"options"`
+	Options NotebookV2beta2SpecialValueMapOptions `json:"options"`
 }
 
 // NewNotebookSpecialValueMap creates a new NotebookSpecialValueMap object.
 func NewNotebookSpecialValueMap() *NotebookSpecialValueMap {
 	return &NotebookSpecialValueMap{
 		Type:    NotebookMappingTypeSpecial,
-		Options: *NewNotebookV2beta1SpecialValueMapOptions(),
+		Options: *NewNotebookV2beta2SpecialValueMapOptions(),
 	}
 }
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookSpecialValueMap.
 func (NotebookSpecialValueMap) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookSpecialValueMap"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookSpecialValueMap"
 }
 
 // Special value types supported by the `SpecialValueMap`
@@ -795,7 +795,7 @@ const (
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookSpecialValueMatch.
 func (NotebookSpecialValueMatch) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookSpecialValueMatch"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookSpecialValueMatch"
 }
 
 // +k8s:openapi-gen=true
@@ -813,7 +813,7 @@ func NewNotebookThresholdsConfig() *NotebookThresholdsConfig {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookThresholdsConfig.
 func (NotebookThresholdsConfig) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookThresholdsConfig"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookThresholdsConfig"
 }
 
 // +k8s:openapi-gen=true
@@ -826,7 +826,7 @@ const (
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookThresholdsMode.
 func (NotebookThresholdsMode) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookThresholdsMode"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookThresholdsMode"
 }
 
 // +k8s:openapi-gen=true
@@ -845,7 +845,7 @@ func NewNotebookThreshold() *NotebookThreshold {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookThreshold.
 func (NotebookThreshold) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookThreshold"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookThreshold"
 }
 
 // Map a field to a color.
@@ -868,7 +868,7 @@ func NewNotebookFieldColor() *NotebookFieldColor {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookFieldColor.
 func (NotebookFieldColor) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookFieldColor"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookFieldColor"
 }
 
 // Color mode for a field. You can specify a single color, or select a continuous (gradient) color schemes, based on a value.
@@ -932,7 +932,7 @@ const (
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookFieldColorModeId.
 func (NotebookFieldColorModeId) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookFieldColorModeId"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookFieldColorModeId"
 }
 
 // Defines how to assign a series color from "by value" color schemes. For example for an aggregated data points like a timeseries, the color can be assigned by the min, max or last value.
@@ -947,7 +947,7 @@ const (
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookFieldColorSeriesByMode.
 func (NotebookFieldColorSeriesByMode) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookFieldColorSeriesByMode"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookFieldColorSeriesByMode"
 }
 
 // +k8s:openapi-gen=true
@@ -959,7 +959,7 @@ type NotebookAction struct {
 	Confirmation *string                     `json:"confirmation,omitempty"`
 	OneClick     *bool                       `json:"oneClick,omitempty"`
 	Variables    []NotebookActionVariable    `json:"variables,omitempty"`
-	Style        *NotebookV2beta1ActionStyle `json:"style,omitempty"`
+	Style        *NotebookV2beta2ActionStyle `json:"style,omitempty"`
 }
 
 // NewNotebookAction creates a new NotebookAction object.
@@ -969,7 +969,7 @@ func NewNotebookAction() *NotebookAction {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookAction.
 func (NotebookAction) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookAction"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookAction"
 }
 
 // +k8s:openapi-gen=true
@@ -982,7 +982,7 @@ const (
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookActionType.
 func (NotebookActionType) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookActionType"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookActionType"
 }
 
 // +k8s:openapi-gen=true
@@ -1004,7 +1004,7 @@ func NewNotebookFetchOptions() *NotebookFetchOptions {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookFetchOptions.
 func (NotebookFetchOptions) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookFetchOptions"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookFetchOptions"
 }
 
 // +k8s:openapi-gen=true
@@ -1020,7 +1020,7 @@ const (
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookHttpRequestMethod.
 func (NotebookHttpRequestMethod) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookHttpRequestMethod"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookHttpRequestMethod"
 }
 
 // +k8s:openapi-gen=true
@@ -1043,7 +1043,7 @@ func NewNotebookInfinityOptions() *NotebookInfinityOptions {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookInfinityOptions.
 func (NotebookInfinityOptions) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookInfinityOptions"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookInfinityOptions"
 }
 
 // +k8s:openapi-gen=true
@@ -1062,7 +1062,7 @@ func NewNotebookActionVariable() *NotebookActionVariable {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookActionVariable.
 func (NotebookActionVariable) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookActionVariable"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookActionVariable"
 }
 
 // Action variable type
@@ -1081,7 +1081,7 @@ const (
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookNullValueMode.
 func (NotebookNullValueMode) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookNullValueMode"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookNullValueMode"
 }
 
 // +k8s:openapi-gen=true
@@ -1099,7 +1099,7 @@ func NewNotebookDynamicConfigValue() *NotebookDynamicConfigValue {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookDynamicConfigValue.
 func (NotebookDynamicConfigValue) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookDynamicConfigValue"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookDynamicConfigValue"
 }
 
 // +k8s:openapi-gen=true
@@ -1118,7 +1118,7 @@ func NewNotebookLibraryPanelKind() *NotebookLibraryPanelKind {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookLibraryPanelKind.
 func (NotebookLibraryPanelKind) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookLibraryPanelKind"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookLibraryPanelKind"
 }
 
 // +k8s:openapi-gen=true
@@ -1139,7 +1139,7 @@ func NewNotebookLibraryPanelKindSpec() *NotebookLibraryPanelKindSpec {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookLibraryPanelKindSpec.
 func (NotebookLibraryPanelKindSpec) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookLibraryPanelKindSpec"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookLibraryPanelKindSpec"
 }
 
 // A library panel is a reusable panel that you can use in any dashboard.
@@ -1160,7 +1160,7 @@ func NewNotebookLibraryPanelRef() *NotebookLibraryPanelRef {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookLibraryPanelRef.
 func (NotebookLibraryPanelRef) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookLibraryPanelRef"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookLibraryPanelRef"
 }
 
 // +k8s:openapi-gen=true
@@ -1179,7 +1179,7 @@ func NewNotebookNotebookLayoutKind() *NotebookNotebookLayoutKind {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookNotebookLayoutKind.
 func (NotebookNotebookLayoutKind) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookNotebookLayoutKind"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookNotebookLayoutKind"
 }
 
 // +k8s:openapi-gen=true
@@ -1196,7 +1196,7 @@ func NewNotebookNotebookLayoutSpec() *NotebookNotebookLayoutSpec {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookNotebookLayoutSpec.
 func (NotebookNotebookLayoutSpec) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookNotebookLayoutSpec"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookNotebookLayoutSpec"
 }
 
 // +k8s:openapi-gen=true
@@ -1215,7 +1215,7 @@ func NewNotebookNotebookLayoutItemKind() *NotebookNotebookLayoutItemKind {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookNotebookLayoutItemKind.
 func (NotebookNotebookLayoutItemKind) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookNotebookLayoutItemKind"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookNotebookLayoutItemKind"
 }
 
 // One ordered item in a notebook layout. `element` references either a CellKind
@@ -1237,7 +1237,7 @@ func NewNotebookNotebookLayoutItemSpec() *NotebookNotebookLayoutItemSpec {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookNotebookLayoutItemSpec.
 func (NotebookNotebookLayoutItemSpec) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookNotebookLayoutItemSpec"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookNotebookLayoutItemSpec"
 }
 
 // +k8s:openapi-gen=true
@@ -1255,7 +1255,7 @@ func NewNotebookElementReference() *NotebookElementReference {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookElementReference.
 func (NotebookElementReference) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookElementReference"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookElementReference"
 }
 
 // +k8s:openapi-gen=true
@@ -1280,47 +1280,47 @@ func NewNotebookSpec() *NotebookSpec {
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookSpec.
 func (NotebookSpec) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookSpec"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookSpec"
 }
 
 // +k8s:openapi-gen=true
-type NotebookV2beta1DataQueryKindDatasource struct {
+type NotebookV2beta2DataQueryKindDatasource struct {
 	Name *string `json:"name,omitempty"`
 }
 
-// NewNotebookV2beta1DataQueryKindDatasource creates a new NotebookV2beta1DataQueryKindDatasource object.
-func NewNotebookV2beta1DataQueryKindDatasource() *NotebookV2beta1DataQueryKindDatasource {
-	return &NotebookV2beta1DataQueryKindDatasource{}
+// NewNotebookV2beta2DataQueryKindDatasource creates a new NotebookV2beta2DataQueryKindDatasource object.
+func NewNotebookV2beta2DataQueryKindDatasource() *NotebookV2beta2DataQueryKindDatasource {
+	return &NotebookV2beta2DataQueryKindDatasource{}
 }
 
-// OpenAPIModelName returns the OpenAPI model name for NotebookV2beta1DataQueryKindDatasource.
-func (NotebookV2beta1DataQueryKindDatasource) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookV2beta1DataQueryKindDatasource"
+// OpenAPIModelName returns the OpenAPI model name for NotebookV2beta2DataQueryKindDatasource.
+func (NotebookV2beta2DataQueryKindDatasource) OpenAPIModelName() string {
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookV2beta2DataQueryKindDatasource"
 }
 
 // +k8s:openapi-gen=true
-type NotebookV2beta1FieldConfigSourceOverrides struct {
+type NotebookV2beta2FieldConfigSourceOverrides struct {
 	// Describes config override rules created when interacting with Grafana.
 	SystemRef  *string                      `json:"__systemRef,omitempty"`
 	Matcher    NotebookMatcherConfig        `json:"matcher"`
 	Properties []NotebookDynamicConfigValue `json:"properties"`
 }
 
-// NewNotebookV2beta1FieldConfigSourceOverrides creates a new NotebookV2beta1FieldConfigSourceOverrides object.
-func NewNotebookV2beta1FieldConfigSourceOverrides() *NotebookV2beta1FieldConfigSourceOverrides {
-	return &NotebookV2beta1FieldConfigSourceOverrides{
+// NewNotebookV2beta2FieldConfigSourceOverrides creates a new NotebookV2beta2FieldConfigSourceOverrides object.
+func NewNotebookV2beta2FieldConfigSourceOverrides() *NotebookV2beta2FieldConfigSourceOverrides {
+	return &NotebookV2beta2FieldConfigSourceOverrides{
 		Matcher:    *NewNotebookMatcherConfig(),
 		Properties: []NotebookDynamicConfigValue{},
 	}
 }
 
-// OpenAPIModelName returns the OpenAPI model name for NotebookV2beta1FieldConfigSourceOverrides.
-func (NotebookV2beta1FieldConfigSourceOverrides) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookV2beta1FieldConfigSourceOverrides"
+// OpenAPIModelName returns the OpenAPI model name for NotebookV2beta2FieldConfigSourceOverrides.
+func (NotebookV2beta2FieldConfigSourceOverrides) OpenAPIModelName() string {
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookV2beta2FieldConfigSourceOverrides"
 }
 
 // +k8s:openapi-gen=true
-type NotebookV2beta1RangeMapOptions struct {
+type NotebookV2beta2RangeMapOptions struct {
 	// Min value of the range. It can be null which means -Infinity
 	From *float64 `json:"from"`
 	// Max value of the range. It can be null which means +Infinity
@@ -1329,71 +1329,71 @@ type NotebookV2beta1RangeMapOptions struct {
 	Result NotebookValueMappingResult `json:"result"`
 }
 
-// NewNotebookV2beta1RangeMapOptions creates a new NotebookV2beta1RangeMapOptions object.
-func NewNotebookV2beta1RangeMapOptions() *NotebookV2beta1RangeMapOptions {
-	return &NotebookV2beta1RangeMapOptions{
+// NewNotebookV2beta2RangeMapOptions creates a new NotebookV2beta2RangeMapOptions object.
+func NewNotebookV2beta2RangeMapOptions() *NotebookV2beta2RangeMapOptions {
+	return &NotebookV2beta2RangeMapOptions{
 		Result: *NewNotebookValueMappingResult(),
 	}
 }
 
-// OpenAPIModelName returns the OpenAPI model name for NotebookV2beta1RangeMapOptions.
-func (NotebookV2beta1RangeMapOptions) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookV2beta1RangeMapOptions"
+// OpenAPIModelName returns the OpenAPI model name for NotebookV2beta2RangeMapOptions.
+func (NotebookV2beta2RangeMapOptions) OpenAPIModelName() string {
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookV2beta2RangeMapOptions"
 }
 
 // +k8s:openapi-gen=true
-type NotebookV2beta1RegexMapOptions struct {
+type NotebookV2beta2RegexMapOptions struct {
 	// Regular expression to match against
 	Pattern string `json:"pattern"`
 	// Config to apply when the value matches the regex
 	Result NotebookValueMappingResult `json:"result"`
 }
 
-// NewNotebookV2beta1RegexMapOptions creates a new NotebookV2beta1RegexMapOptions object.
-func NewNotebookV2beta1RegexMapOptions() *NotebookV2beta1RegexMapOptions {
-	return &NotebookV2beta1RegexMapOptions{
+// NewNotebookV2beta2RegexMapOptions creates a new NotebookV2beta2RegexMapOptions object.
+func NewNotebookV2beta2RegexMapOptions() *NotebookV2beta2RegexMapOptions {
+	return &NotebookV2beta2RegexMapOptions{
 		Result: *NewNotebookValueMappingResult(),
 	}
 }
 
-// OpenAPIModelName returns the OpenAPI model name for NotebookV2beta1RegexMapOptions.
-func (NotebookV2beta1RegexMapOptions) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookV2beta1RegexMapOptions"
+// OpenAPIModelName returns the OpenAPI model name for NotebookV2beta2RegexMapOptions.
+func (NotebookV2beta2RegexMapOptions) OpenAPIModelName() string {
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookV2beta2RegexMapOptions"
 }
 
 // +k8s:openapi-gen=true
-type NotebookV2beta1SpecialValueMapOptions struct {
+type NotebookV2beta2SpecialValueMapOptions struct {
 	// Special value to match against
 	Match NotebookSpecialValueMatch `json:"match"`
 	// Config to apply when the value matches the special value
 	Result NotebookValueMappingResult `json:"result"`
 }
 
-// NewNotebookV2beta1SpecialValueMapOptions creates a new NotebookV2beta1SpecialValueMapOptions object.
-func NewNotebookV2beta1SpecialValueMapOptions() *NotebookV2beta1SpecialValueMapOptions {
-	return &NotebookV2beta1SpecialValueMapOptions{
+// NewNotebookV2beta2SpecialValueMapOptions creates a new NotebookV2beta2SpecialValueMapOptions object.
+func NewNotebookV2beta2SpecialValueMapOptions() *NotebookV2beta2SpecialValueMapOptions {
+	return &NotebookV2beta2SpecialValueMapOptions{
 		Result: *NewNotebookValueMappingResult(),
 	}
 }
 
-// OpenAPIModelName returns the OpenAPI model name for NotebookV2beta1SpecialValueMapOptions.
-func (NotebookV2beta1SpecialValueMapOptions) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookV2beta1SpecialValueMapOptions"
+// OpenAPIModelName returns the OpenAPI model name for NotebookV2beta2SpecialValueMapOptions.
+func (NotebookV2beta2SpecialValueMapOptions) OpenAPIModelName() string {
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookV2beta2SpecialValueMapOptions"
 }
 
 // +k8s:openapi-gen=true
-type NotebookV2beta1ActionStyle struct {
+type NotebookV2beta2ActionStyle struct {
 	BackgroundColor *string `json:"backgroundColor,omitempty"`
 }
 
-// NewNotebookV2beta1ActionStyle creates a new NotebookV2beta1ActionStyle object.
-func NewNotebookV2beta1ActionStyle() *NotebookV2beta1ActionStyle {
-	return &NotebookV2beta1ActionStyle{}
+// NewNotebookV2beta2ActionStyle creates a new NotebookV2beta2ActionStyle object.
+func NewNotebookV2beta2ActionStyle() *NotebookV2beta2ActionStyle {
+	return &NotebookV2beta2ActionStyle{}
 }
 
-// OpenAPIModelName returns the OpenAPI model name for NotebookV2beta1ActionStyle.
-func (NotebookV2beta1ActionStyle) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookV2beta1ActionStyle"
+// OpenAPIModelName returns the OpenAPI model name for NotebookV2beta2ActionStyle.
+func (NotebookV2beta2ActionStyle) OpenAPIModelName() string {
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookV2beta2ActionStyle"
 }
 
 // +k8s:openapi-gen=true
@@ -1407,7 +1407,7 @@ const (
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookTimeSettingsSpecWeekStart.
 func (NotebookTimeSettingsSpecWeekStart) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookTimeSettingsSpecWeekStart"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookTimeSettingsSpecWeekStart"
 }
 
 // +k8s:openapi-gen=true
@@ -1420,7 +1420,7 @@ const (
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookNotebookLayoutItemSpecSource.
 func (NotebookNotebookLayoutItemSpecSource) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookNotebookLayoutItemSpecSource"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookNotebookLayoutItemSpecSource"
 }
 
 // +k8s:openapi-gen=true
@@ -1499,7 +1499,7 @@ func (resource *NotebookCellKindOrPanelKindOrLibraryPanelKind) UnmarshalJSON(raw
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookCellKindOrPanelKindOrLibraryPanelKind.
 func (NotebookCellKindOrPanelKindOrLibraryPanelKind) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookCellKindOrPanelKindOrLibraryPanelKind"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookCellKindOrPanelKindOrLibraryPanelKind"
 }
 
 // +k8s:openapi-gen=true
@@ -1566,7 +1566,7 @@ func (resource *NotebookMarkdownCellContentKindOrCodeCellContentKind) UnmarshalJ
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookMarkdownCellContentKindOrCodeCellContentKind.
 func (NotebookMarkdownCellContentKindOrCodeCellContentKind) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookMarkdownCellContentKindOrCodeCellContentKind"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookMarkdownCellContentKindOrCodeCellContentKind"
 }
 
 // +k8s:openapi-gen=true
@@ -1657,5 +1657,5 @@ func (resource *NotebookValueMapOrRangeMapOrRegexMapOrSpecialValueMap) Unmarshal
 
 // OpenAPIModelName returns the OpenAPI model name for NotebookValueMapOrRangeMapOrRegexMapOrSpecialValueMap.
 func (NotebookValueMapOrRangeMapOrRegexMapOrSpecialValueMap) OpenAPIModelName() string {
-	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta1.NotebookValueMapOrRangeMapOrRegexMapOrSpecialValueMap"
+	return "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v2beta2.NotebookValueMapOrRangeMapOrRegexMapOrSpecialValueMap"
 }

@@ -1,5 +1,5 @@
 import { api } from './baseAPI';
-export const addTagTypes = ['API Discovery', 'Dashboard', 'Variable'] as const;
+export const addTagTypes = ['API Discovery', 'Notebook'] as const;
 const injectedRtkApi = api
   .enhanceEndpoints({
     addTagTypes,
@@ -10,9 +10,9 @@ const injectedRtkApi = api
         query: () => ({ url: `/` }),
         providesTags: ['API Discovery'],
       }),
-      listDashboard: build.query<ListDashboardApiResponse, ListDashboardApiArg>({
+      listNotebook: build.query<ListNotebookApiResponse, ListNotebookApiArg>({
         query: (queryArg) => ({
-          url: `/dashboards`,
+          url: `/notebooks`,
           params: {
             pretty: queryArg.pretty,
             continue: queryArg['continue'],
@@ -24,13 +24,13 @@ const injectedRtkApi = api
             watch: queryArg.watch,
           },
         }),
-        providesTags: ['Dashboard'],
+        providesTags: ['Notebook'],
       }),
-      createDashboard: build.mutation<CreateDashboardApiResponse, CreateDashboardApiArg>({
+      createNotebook: build.mutation<CreateNotebookApiResponse, CreateNotebookApiArg>({
         query: (queryArg) => ({
-          url: `/dashboards`,
+          url: `/notebooks`,
           method: 'POST',
-          body: queryArg.dashboard,
+          body: queryArg.notebook,
           params: {
             pretty: queryArg.pretty,
             dryRun: queryArg.dryRun,
@@ -38,98 +38,11 @@ const injectedRtkApi = api
             fieldValidation: queryArg.fieldValidation,
           },
         }),
-        invalidatesTags: ['Dashboard'],
+        invalidatesTags: ['Notebook'],
       }),
-      getDashboard: build.query<GetDashboardApiResponse, GetDashboardApiArg>({
+      deletecollectionNotebook: build.mutation<DeletecollectionNotebookApiResponse, DeletecollectionNotebookApiArg>({
         query: (queryArg) => ({
-          url: `/dashboards/${queryArg.name}`,
-          params: {
-            pretty: queryArg.pretty,
-          },
-        }),
-        providesTags: ['Dashboard'],
-      }),
-      replaceDashboard: build.mutation<ReplaceDashboardApiResponse, ReplaceDashboardApiArg>({
-        query: (queryArg) => ({
-          url: `/dashboards/${queryArg.name}`,
-          method: 'PUT',
-          body: queryArg.dashboard,
-          params: {
-            pretty: queryArg.pretty,
-            dryRun: queryArg.dryRun,
-            fieldManager: queryArg.fieldManager,
-            fieldValidation: queryArg.fieldValidation,
-          },
-        }),
-        invalidatesTags: ['Dashboard'],
-      }),
-      deleteDashboard: build.mutation<DeleteDashboardApiResponse, DeleteDashboardApiArg>({
-        query: (queryArg) => ({
-          url: `/dashboards/${queryArg.name}`,
-          method: 'DELETE',
-          params: {
-            pretty: queryArg.pretty,
-            dryRun: queryArg.dryRun,
-            gracePeriodSeconds: queryArg.gracePeriodSeconds,
-            ignoreStoreReadErrorWithClusterBreakingPotential: queryArg.ignoreStoreReadErrorWithClusterBreakingPotential,
-            orphanDependents: queryArg.orphanDependents,
-            propagationPolicy: queryArg.propagationPolicy,
-          },
-        }),
-        invalidatesTags: ['Dashboard'],
-      }),
-      updateDashboard: build.mutation<UpdateDashboardApiResponse, UpdateDashboardApiArg>({
-        query: (queryArg) => ({
-          url: `/dashboards/${queryArg.name}`,
-          method: 'PATCH',
-          body: queryArg.patch,
-          params: {
-            pretty: queryArg.pretty,
-            dryRun: queryArg.dryRun,
-            fieldManager: queryArg.fieldManager,
-            fieldValidation: queryArg.fieldValidation,
-            force: queryArg.force,
-          },
-        }),
-        invalidatesTags: ['Dashboard'],
-      }),
-      getDashboardDto: build.query<GetDashboardDtoApiResponse, GetDashboardDtoApiArg>({
-        query: (queryArg) => ({ url: `/dashboards/${queryArg.name}/dto` }),
-        providesTags: ['Dashboard'],
-      }),
-      listVariable: build.query<ListVariableApiResponse, ListVariableApiArg>({
-        query: (queryArg) => ({
-          url: `/variables`,
-          params: {
-            pretty: queryArg.pretty,
-            continue: queryArg['continue'],
-            fieldSelector: queryArg.fieldSelector,
-            labelSelector: queryArg.labelSelector,
-            limit: queryArg.limit,
-            resourceVersion: queryArg.resourceVersion,
-            timeoutSeconds: queryArg.timeoutSeconds,
-            watch: queryArg.watch,
-          },
-        }),
-        providesTags: ['Variable'],
-      }),
-      createVariable: build.mutation<CreateVariableApiResponse, CreateVariableApiArg>({
-        query: (queryArg) => ({
-          url: `/variables`,
-          method: 'POST',
-          body: queryArg.variable,
-          params: {
-            pretty: queryArg.pretty,
-            dryRun: queryArg.dryRun,
-            fieldManager: queryArg.fieldManager,
-            fieldValidation: queryArg.fieldValidation,
-          },
-        }),
-        invalidatesTags: ['Variable'],
-      }),
-      deletecollectionVariable: build.mutation<DeletecollectionVariableApiResponse, DeletecollectionVariableApiArg>({
-        query: (queryArg) => ({
-          url: `/variables`,
+          url: `/notebooks`,
           method: 'DELETE',
           params: {
             pretty: queryArg.pretty,
@@ -149,22 +62,22 @@ const injectedRtkApi = api
             timeoutSeconds: queryArg.timeoutSeconds,
           },
         }),
-        invalidatesTags: ['Variable'],
+        invalidatesTags: ['Notebook'],
       }),
-      getVariable: build.query<GetVariableApiResponse, GetVariableApiArg>({
+      getNotebook: build.query<GetNotebookApiResponse, GetNotebookApiArg>({
         query: (queryArg) => ({
-          url: `/variables/${queryArg.name}`,
+          url: `/notebooks/${queryArg.name}`,
           params: {
             pretty: queryArg.pretty,
           },
         }),
-        providesTags: ['Variable'],
+        providesTags: ['Notebook'],
       }),
-      replaceVariable: build.mutation<ReplaceVariableApiResponse, ReplaceVariableApiArg>({
+      replaceNotebook: build.mutation<ReplaceNotebookApiResponse, ReplaceNotebookApiArg>({
         query: (queryArg) => ({
-          url: `/variables/${queryArg.name}`,
+          url: `/notebooks/${queryArg.name}`,
           method: 'PUT',
-          body: queryArg.variable,
+          body: queryArg.notebook,
           params: {
             pretty: queryArg.pretty,
             dryRun: queryArg.dryRun,
@@ -172,11 +85,11 @@ const injectedRtkApi = api
             fieldValidation: queryArg.fieldValidation,
           },
         }),
-        invalidatesTags: ['Variable'],
+        invalidatesTags: ['Notebook'],
       }),
-      deleteVariable: build.mutation<DeleteVariableApiResponse, DeleteVariableApiArg>({
+      deleteNotebook: build.mutation<DeleteNotebookApiResponse, DeleteNotebookApiArg>({
         query: (queryArg) => ({
-          url: `/variables/${queryArg.name}`,
+          url: `/notebooks/${queryArg.name}`,
           method: 'DELETE',
           params: {
             pretty: queryArg.pretty,
@@ -187,11 +100,11 @@ const injectedRtkApi = api
             propagationPolicy: queryArg.propagationPolicy,
           },
         }),
-        invalidatesTags: ['Variable'],
+        invalidatesTags: ['Notebook'],
       }),
-      updateVariable: build.mutation<UpdateVariableApiResponse, UpdateVariableApiArg>({
+      updateNotebook: build.mutation<UpdateNotebookApiResponse, UpdateNotebookApiArg>({
         query: (queryArg) => ({
-          url: `/variables/${queryArg.name}`,
+          url: `/notebooks/${queryArg.name}`,
           method: 'PATCH',
           body: queryArg.patch,
           params: {
@@ -202,7 +115,7 @@ const injectedRtkApi = api
             force: queryArg.force,
           },
         }),
-        invalidatesTags: ['Variable'],
+        invalidatesTags: ['Notebook'],
       }),
     }),
     overrideExisting: false,
@@ -210,8 +123,8 @@ const injectedRtkApi = api
 export { injectedRtkApi as generatedAPI };
 export type GetApiResourcesApiResponse = /** status 200 OK */ ApiResourceList;
 export type GetApiResourcesApiArg = void;
-export type ListDashboardApiResponse = /** status 200 OK */ DashboardList;
-export type ListDashboardApiArg = {
+export type ListNotebookApiResponse = /** status 200 OK */ NotebookList;
+export type ListNotebookApiArg = {
   /** If 'true', then the output is pretty printed. Defaults to 'false' unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). */
   pretty?: string;
   /** The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the "next key".
@@ -235,11 +148,11 @@ export type ListDashboardApiArg = {
   /** Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. */
   watch?: boolean;
 };
-export type CreateDashboardApiResponse = /** status 200 OK */
-  | Dashboard
-  | /** status 201 Created */ Dashboard
-  | /** status 202 Accepted */ Dashboard;
-export type CreateDashboardApiArg = {
+export type CreateNotebookApiResponse = /** status 200 OK */
+  | Notebook
+  | /** status 201 Created */ Notebook
+  | /** status 202 Accepted */ Notebook;
+export type CreateNotebookApiArg = {
   /** If 'true', then the output is pretty printed. Defaults to 'false' unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). */
   pretty?: string;
   /** When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed */
@@ -248,109 +161,10 @@ export type CreateDashboardApiArg = {
   fieldManager?: string;
   /** fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. */
   fieldValidation?: string;
-  dashboard: Dashboard;
+  notebook: Notebook;
 };
-export type GetDashboardApiResponse = /** status 200 OK */ Dashboard;
-export type GetDashboardApiArg = {
-  /** name of the Dashboard */
-  name: string;
-  /** If 'true', then the output is pretty printed. Defaults to 'false' unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). */
-  pretty?: string;
-};
-export type ReplaceDashboardApiResponse = /** status 200 OK */ Dashboard | /** status 201 Created */ Dashboard;
-export type ReplaceDashboardApiArg = {
-  /** name of the Dashboard */
-  name: string;
-  /** If 'true', then the output is pretty printed. Defaults to 'false' unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). */
-  pretty?: string;
-  /** When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed */
-  dryRun?: string;
-  /** fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. */
-  fieldManager?: string;
-  /** fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. */
-  fieldValidation?: string;
-  dashboard: Dashboard;
-};
-export type DeleteDashboardApiResponse = /** status 200 OK */ Status | /** status 202 Accepted */ Status;
-export type DeleteDashboardApiArg = {
-  /** name of the Dashboard */
-  name: string;
-  /** If 'true', then the output is pretty printed. Defaults to 'false' unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). */
-  pretty?: string;
-  /** When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed */
-  dryRun?: string;
-  /** The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. */
-  gracePeriodSeconds?: number;
-  /** if set to true, it will trigger an unsafe deletion of the resource in case the normal deletion flow fails with a corrupt object error. A resource is considered corrupt if it can not be retrieved from the underlying storage successfully because of a) its data can not be transformed e.g. decryption failure, or b) it fails to decode into an object. NOTE: unsafe deletion ignores finalizer constraints, skips precondition checks, and removes the object from the storage. WARNING: This may potentially break the cluster if the workload associated with the resource being unsafe-deleted relies on normal deletion flow. Use only if you REALLY know what you are doing. The default value is false, and the user must opt in to enable it */
-  ignoreStoreReadErrorWithClusterBreakingPotential?: boolean;
-  /** Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the "orphan" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both. */
-  orphanDependents?: boolean;
-  /** Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground. */
-  propagationPolicy?: string;
-};
-export type UpdateDashboardApiResponse = /** status 200 OK */ Dashboard | /** status 201 Created */ Dashboard;
-export type UpdateDashboardApiArg = {
-  /** name of the Dashboard */
-  name: string;
-  /** If 'true', then the output is pretty printed. Defaults to 'false' unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). */
-  pretty?: string;
-  /** When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed */
-  dryRun?: string;
-  /** fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). */
-  fieldManager?: string;
-  /** fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. */
-  fieldValidation?: string;
-  /** Force is going to "force" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. */
-  force?: boolean;
-  patch: Patch;
-};
-export type GetDashboardDtoApiResponse = /** status 200 OK */ DashboardWithAccessInfo;
-export type GetDashboardDtoApiArg = {
-  /** name of the DashboardWithAccessInfo */
-  name: string;
-};
-export type ListVariableApiResponse = /** status 200 OK */ VariableList;
-export type ListVariableApiArg = {
-  /** If 'true', then the output is pretty printed. Defaults to 'false' unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). */
-  pretty?: string;
-  /** The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the "next key".
-    
-    This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. */
-  continue?: string;
-  /** A selector to restrict the list of returned objects by their fields. Defaults to everything. */
-  fieldSelector?: string;
-  /** A selector to restrict the list of returned objects by their labels. Defaults to everything. */
-  labelSelector?: string;
-  /** limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.
-    
-    The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. */
-  limit?: number;
-  /** resourceVersion sets a constraint on what resource versions a request may be served from. See https://kubernetes.io/docs/reference/using-api/api-concepts/#resource-versions for details.
-    
-    Defaults to unset */
-  resourceVersion?: string;
-  /** Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. */
-  timeoutSeconds?: number;
-  /** Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. */
-  watch?: boolean;
-};
-export type CreateVariableApiResponse = /** status 200 OK */
-  | Variable
-  | /** status 201 Created */ Variable
-  | /** status 202 Accepted */ Variable;
-export type CreateVariableApiArg = {
-  /** If 'true', then the output is pretty printed. Defaults to 'false' unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). */
-  pretty?: string;
-  /** When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed */
-  dryRun?: string;
-  /** fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. */
-  fieldManager?: string;
-  /** fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. */
-  fieldValidation?: string;
-  variable: Variable;
-};
-export type DeletecollectionVariableApiResponse = /** status 200 OK */ Status;
-export type DeletecollectionVariableApiArg = {
+export type DeletecollectionNotebookApiResponse = /** status 200 OK */ Status;
+export type DeletecollectionNotebookApiArg = {
   /** If 'true', then the output is pretty printed. Defaults to 'false' unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). */
   pretty?: string;
   /** The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the "next key".
@@ -423,16 +237,16 @@ export type DeletecollectionVariableApiArg = {
   /** Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. */
   timeoutSeconds?: number;
 };
-export type GetVariableApiResponse = /** status 200 OK */ Variable;
-export type GetVariableApiArg = {
-  /** name of the Variable */
+export type GetNotebookApiResponse = /** status 200 OK */ Notebook;
+export type GetNotebookApiArg = {
+  /** name of the Notebook */
   name: string;
   /** If 'true', then the output is pretty printed. Defaults to 'false' unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). */
   pretty?: string;
 };
-export type ReplaceVariableApiResponse = /** status 200 OK */ Variable | /** status 201 Created */ Variable;
-export type ReplaceVariableApiArg = {
-  /** name of the Variable */
+export type ReplaceNotebookApiResponse = /** status 200 OK */ Notebook | /** status 201 Created */ Notebook;
+export type ReplaceNotebookApiArg = {
+  /** name of the Notebook */
   name: string;
   /** If 'true', then the output is pretty printed. Defaults to 'false' unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). */
   pretty?: string;
@@ -442,11 +256,11 @@ export type ReplaceVariableApiArg = {
   fieldManager?: string;
   /** fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. */
   fieldValidation?: string;
-  variable: Variable;
+  notebook: Notebook;
 };
-export type DeleteVariableApiResponse = /** status 200 OK */ Status | /** status 202 Accepted */ Status;
-export type DeleteVariableApiArg = {
-  /** name of the Variable */
+export type DeleteNotebookApiResponse = /** status 200 OK */ Status | /** status 202 Accepted */ Status;
+export type DeleteNotebookApiArg = {
+  /** name of the Notebook */
   name: string;
   /** If 'true', then the output is pretty printed. Defaults to 'false' unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). */
   pretty?: string;
@@ -461,9 +275,9 @@ export type DeleteVariableApiArg = {
   /** Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground. */
   propagationPolicy?: string;
 };
-export type UpdateVariableApiResponse = /** status 200 OK */ Variable | /** status 201 Created */ Variable;
-export type UpdateVariableApiArg = {
-  /** name of the Variable */
+export type UpdateNotebookApiResponse = /** status 200 OK */ Notebook | /** status 201 Created */ Notebook;
+export type UpdateNotebookApiArg = {
+  /** name of the Notebook */
   name: string;
   /** If 'true', then the output is pretty printed. Defaults to 'false' unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). */
   pretty?: string;
@@ -591,26 +405,57 @@ export type ObjectMeta = {
     Populated by the system. Read-only. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#uids */
   uid?: string;
 };
-export type DashboardAnnotationPanelFilter = {
-  /** Should the specified panels be included or excluded */
-  exclude?: boolean;
-  /** Panel IDs that should be included or excluded */
-  ids: number[];
+export type NotebookCodeCellContentSpec = {
+  annotation?: string;
+  code: string;
+  highlight?: number[];
+  language: string;
 };
-export type DashboardAnnotationEventFieldMapping = {
-  /** Regular expression to apply to the field value */
-  regex?: string;
-  /** Source type for the field value */
-  source?: string;
-  /** Constant value to use when source is "text" */
-  value?: string;
+export type NotebookCodeCellContentKind = {
+  kind: string;
+  spec: NotebookCodeCellContentSpec;
 };
-export type DashboardV2Beta1DataQueryKindDatasource = {
+export type NotebookMarkdownCellContentSpec = {
+  text: string;
+};
+export type NotebookMarkdownCellContentKind = {
+  kind: string;
+  spec: NotebookMarkdownCellContentSpec;
+};
+export type NotebookMarkdownCellContentKindOrCodeCellContentKind = {
+  CodeCellContentKind?: NotebookCodeCellContentKind;
+  MarkdownCellContentKind?: NotebookMarkdownCellContentKind;
+};
+export type NotebookCellSpec = {
+  content: NotebookMarkdownCellContentKindOrCodeCellContentKind;
+};
+export type NotebookCellKind = {
+  kind: string;
+  spec: NotebookCellSpec;
+};
+export type NotebookLibraryPanelRef = {
+  /** Library panel name */
+  name: string;
+  /** Library panel uid */
+  uid: string;
+};
+export type NotebookLibraryPanelKindSpec = {
+  /** Panel ID for the library panel in the dashboard */
+  id: number;
+  libraryPanel: NotebookLibraryPanelRef;
+  /** Title for the library panel in the dashboard */
+  title: string;
+};
+export type NotebookLibraryPanelKind = {
+  kind: string;
+  spec: NotebookLibraryPanelKindSpec;
+};
+export type NotebookV2Beta2DataQueryKindDatasource = {
   name?: string;
 };
-export type DashboardDataQueryKind = {
+export type NotebookDataQueryKind = {
   /** New type for datasource reference Not creating a new type until we figure out how to handle DS refs for group by, adhoc, and every place that uses DataSourceRef in TS. */
-  datasource?: DashboardV2Beta1DataQueryKindDatasource;
+  datasource?: NotebookV2Beta2DataQueryKindDatasource;
   group: string;
   kind: string;
   labels?: {
@@ -621,56 +466,16 @@ export type DashboardDataQueryKind = {
   };
   version: string;
 };
-export type DashboardAnnotationQuerySpec = {
-  builtIn?: boolean;
-  enable: boolean;
-  filter?: DashboardAnnotationPanelFilter;
-  hide: boolean;
-  iconColor: string;
-  /** Catch-all field for datasource-specific properties. Should not be available in as code tooling. */
-  legacyOptions?: {
-    [key: string]: object;
-  };
-  /** Mappings define how to convert data frame fields to annotation event fields. */
-  mappings?: {
-    [key: string]: DashboardAnnotationEventFieldMapping;
-  };
-  name: string;
-  /** Placement can be used to display the annotation query somewhere else on the dashboard other than the default location. */
-  placement?: string;
-  query: DashboardDataQueryKind;
-};
-export type DashboardAnnotationQueryKind = {
-  kind: string;
-  spec: DashboardAnnotationQuerySpec;
-};
-export type DashboardLibraryPanelRef = {
-  /** Library panel name */
-  name: string;
-  /** Library panel uid */
-  uid: string;
-};
-export type DashboardLibraryPanelKindSpec = {
-  /** Panel ID for the library panel in the dashboard */
-  id: number;
-  libraryPanel: DashboardLibraryPanelRef;
-  /** Title for the library panel in the dashboard */
-  title: string;
-};
-export type DashboardLibraryPanelKind = {
-  kind: string;
-  spec: DashboardLibraryPanelKindSpec;
-};
-export type DashboardPanelQuerySpec = {
+export type NotebookPanelQuerySpec = {
   hidden: boolean;
-  query: DashboardDataQueryKind;
+  query: NotebookDataQueryKind;
   refId: string;
 };
-export type DashboardPanelQueryKind = {
+export type NotebookPanelQueryKind = {
   kind: string;
-  spec: DashboardPanelQuerySpec;
+  spec: NotebookPanelQuerySpec;
 };
-export type DashboardQueryOptionsSpec = {
+export type NotebookQueryOptionsSpec = {
   cacheTimeout?: string;
   hideTimeOverride?: boolean;
   interval?: string;
@@ -680,7 +485,7 @@ export type DashboardQueryOptionsSpec = {
   timeFrom?: string;
   timeShift?: string;
 };
-export type DashboardMatcherConfig = {
+export type NotebookMatcherConfig = {
   /** The matcher id. This is used to find the matcher implementation from registry. */
   id: string;
   /** The matcher options. This is specific to the matcher implementation. */
@@ -688,38 +493,37 @@ export type DashboardMatcherConfig = {
   /** If set, limits this matcher to fields of that type. If not set, "series" mode is used. */
   scope?: string;
 };
-export type DashboardDataTransformerConfig = {
+export type NotebookTransformationSpec = {
   /** Disabled transformations are skipped */
   disabled?: boolean;
   /** Optional frame matcher. When missing it will be applied to all results */
-  filter?: DashboardMatcherConfig;
-  /** Unique identifier of transformer */
-  id: string;
+  filter?: NotebookMatcherConfig;
   /** Options to be passed to the transformer Valid options depend on the transformer id */
   options: object;
   /** Where to pull DataFrames from as input to transformation */
   topic?: string;
 };
-export type DashboardTransformationKind = {
-  /** The kind of a TransformationKind is the transformation ID */
+export type NotebookTransformationKind = {
+  /** The group is the transformation ID */
+  group: string;
   kind: string;
-  spec: DashboardDataTransformerConfig;
+  spec: NotebookTransformationSpec;
 };
-export type DashboardQueryGroupSpec = {
-  queries: DashboardPanelQueryKind[];
-  queryOptions: DashboardQueryOptionsSpec;
-  transformations: DashboardTransformationKind[];
+export type NotebookQueryGroupSpec = {
+  queries: NotebookPanelQueryKind[];
+  queryOptions: NotebookQueryOptionsSpec;
+  transformations: NotebookTransformationKind[];
 };
-export type DashboardQueryGroupKind = {
+export type NotebookQueryGroupKind = {
   kind: string;
-  spec: DashboardQueryGroupSpec;
+  spec: NotebookQueryGroupSpec;
 };
-export type DashboardDataLink = {
+export type NotebookDataLink = {
   targetBlank?: boolean;
   title: string;
   url: string;
 };
-export type DashboardFetchOptions = {
+export type NotebookFetchOptions = {
   body?: string;
   headers?: string[][];
   method: string;
@@ -727,7 +531,7 @@ export type DashboardFetchOptions = {
   queryParams?: string[][];
   url: string;
 };
-export type DashboardInfinityOptions = {
+export type NotebookInfinityOptions = {
   body?: string;
   datasourceUid: string;
   headers?: string[][];
@@ -736,25 +540,25 @@ export type DashboardInfinityOptions = {
   queryParams?: string[][];
   url: string;
 };
-export type DashboardV2Beta1ActionStyle = {
+export type NotebookV2Beta2ActionStyle = {
   backgroundColor?: string;
 };
-export type DashboardActionVariable = {
+export type NotebookActionVariable = {
   key: string;
   name: string;
   type: string;
 };
-export type DashboardAction = {
+export type NotebookAction = {
   confirmation?: string;
-  fetch?: DashboardFetchOptions;
-  infinity?: DashboardInfinityOptions;
+  fetch?: NotebookFetchOptions;
+  infinity?: NotebookInfinityOptions;
   oneClick?: boolean;
-  style?: DashboardV2Beta1ActionStyle;
+  style?: NotebookV2Beta2ActionStyle;
   title: string;
   type: string;
-  variables?: DashboardActionVariable[];
+  variables?: NotebookActionVariable[];
 };
-export type DashboardFieldColor = {
+export type NotebookFieldColor = {
   /** The fixed color value for fixed or shades color modes. */
   fixedColor?: string;
   /** The end color for the gradient color mode (smallest value). Only used when mode is gradient. */
@@ -764,7 +568,7 @@ export type DashboardFieldColor = {
   /** Some visualizations need to know how to assign a series color from by value color schemes. */
   seriesBy?: string;
 };
-export type DashboardValueMappingResult = {
+export type NotebookValueMappingResult = {
   /** Text to use when the value matches */
   color?: string;
   /** Icon to display when the value matches. Only specific visualizations. */
@@ -774,69 +578,69 @@ export type DashboardValueMappingResult = {
   /** Text to display when the value matches */
   text?: string;
 };
-export type DashboardV2Beta1RangeMapOptions = {
+export type NotebookV2Beta2RangeMapOptions = {
   /** Min value of the range. It can be null which means -Infinity */
   from: number;
   /** Config to apply when the value is within the range */
-  result: DashboardValueMappingResult;
+  result: NotebookValueMappingResult;
   /** Max value of the range. It can be null which means +Infinity */
   to: number;
 };
-export type DashboardRangeMap = {
+export type NotebookRangeMap = {
   /** Range to match against and the result to apply when the value is within the range */
-  options: DashboardV2Beta1RangeMapOptions;
+  options: NotebookV2Beta2RangeMapOptions;
   type: string;
 };
-export type DashboardV2Beta1RegexMapOptions = {
+export type NotebookV2Beta2RegexMapOptions = {
   /** Regular expression to match against */
   pattern: string;
   /** Config to apply when the value matches the regex */
-  result: DashboardValueMappingResult;
+  result: NotebookValueMappingResult;
 };
-export type DashboardRegexMap = {
+export type NotebookRegexMap = {
   /** Regular expression to match against and the result to apply when the value matches the regex */
-  options: DashboardV2Beta1RegexMapOptions;
+  options: NotebookV2Beta2RegexMapOptions;
   type: string;
 };
-export type DashboardV2Beta1SpecialValueMapOptions = {
+export type NotebookV2Beta2SpecialValueMapOptions = {
   /** Special value to match against */
   match: string;
   /** Config to apply when the value matches the special value */
-  result: DashboardValueMappingResult;
+  result: NotebookValueMappingResult;
 };
-export type DashboardSpecialValueMap = {
-  options: DashboardV2Beta1SpecialValueMapOptions;
+export type NotebookSpecialValueMap = {
+  options: NotebookV2Beta2SpecialValueMapOptions;
   type: string;
 };
-export type DashboardValueMap = {
+export type NotebookValueMap = {
   /** Map with <value_to_match>: ValueMappingResult. For example: { "10": { text: "Perfection!", color: "green" } } */
   options: {
-    [key: string]: DashboardValueMappingResult;
+    [key: string]: NotebookValueMappingResult;
   };
   type: string;
 };
-export type DashboardValueMapOrRangeMapOrRegexMapOrSpecialValueMap = {
-  RangeMap?: DashboardRangeMap;
-  RegexMap?: DashboardRegexMap;
-  SpecialValueMap?: DashboardSpecialValueMap;
-  ValueMap?: DashboardValueMap;
+export type NotebookValueMapOrRangeMapOrRegexMapOrSpecialValueMap = {
+  RangeMap?: NotebookRangeMap;
+  RegexMap?: NotebookRegexMap;
+  SpecialValueMap?: NotebookSpecialValueMap;
+  ValueMap?: NotebookValueMap;
 };
-export type DashboardThreshold = {
+export type NotebookThreshold = {
   color: string;
   /** Value null means -Infinity */
   value: number;
   /** Optional dashboard-variable expression (e.g. `$myVar`) resolved at render time; `value` is the numeric fallback when the expression cannot be resolved to a single finite number. */
   valueExpr?: string;
 };
-export type DashboardThresholdsConfig = {
+export type NotebookThresholdsConfig = {
   mode: string;
-  steps: DashboardThreshold[];
+  steps: NotebookThreshold[];
 };
-export type DashboardFieldConfig = {
+export type NotebookFieldConfig = {
   /** Define interactive HTTP requests that can be triggered from data visualizations. */
-  actions?: DashboardAction[];
+  actions?: NotebookAction[];
   /** Panel color configuration */
-  color?: DashboardFieldColor;
+  color?: NotebookFieldColor;
   /** custom is specified by the FieldConfig field in panel plugin schemas. */
   custom?: {
     [key: string]: object;
@@ -856,7 +660,7 @@ export type DashboardFieldConfig = {
   /** The behavior when clicking on a result */
   links?: object[];
   /** Convert input values into a display string */
-  mappings?: DashboardValueMapOrRangeMapOrRegexMapOrSpecialValueMap[];
+  mappings?: NotebookValueMapOrRangeMapOrRegexMapOrSpecialValueMap[];
   /** The maximum value used in percentage threshold calculations. Leave blank for auto calculation based on all series and fields. */
   max?: number;
   /** The minimum value used in percentage threshold calculations. Leave blank for auto calculation based on all series and fields. */
@@ -870,481 +674,88 @@ export type DashboardFieldConfig = {
     When defined, this value can be used as an identifier within the datasource scope, and may be used to update the results */
   path?: string;
   /** Map numeric values to states */
-  thresholds?: DashboardThresholdsConfig;
+  thresholds?: NotebookThresholdsConfig;
   /** Unit a field should use. The unit you select is applied to all fields except time. You can use the units ID available in Grafana or a custom unit. Available units in Grafana: https://github.com/grafana/grafana/blob/main/packages/grafana-data/src/valueFormats/categories.ts As custom unit, you can use the following formats: `suffix:<suffix>` for custom unit that should go after value. `prefix:<prefix>` for custom unit that should go before value. `time:<format>` For custom date time formats type for example `time:YYYY-MM-DD`. `si:<base scale><unit characters>` for custom SI units. For example: `si: mF`. This one is a bit more advanced as you can specify both a unit and the source data scale. So if your source data is represented as milli (thousands of) something prefix the unit with that SI scale character. `count:<unit>` for a custom count unit. `currency:<unit>` for custom a currency unit. */
   unit?: string;
   /** True if data source can write a value to the path. Auth/authz are supported separately */
   writeable?: boolean;
 };
-export type DashboardDynamicConfigValue = {
+export type NotebookDynamicConfigValue = {
   id: string;
   value?: object;
 };
-export type DashboardV2Beta1FieldConfigSourceOverrides = {
+export type NotebookV2Beta2FieldConfigSourceOverrides = {
   /** Describes config override rules created when interacting with Grafana. */
   __systemRef?: string;
-  matcher: DashboardMatcherConfig;
-  properties: DashboardDynamicConfigValue[];
+  matcher: NotebookMatcherConfig;
+  properties: NotebookDynamicConfigValue[];
 };
-export type DashboardFieldConfigSource = {
+export type NotebookFieldConfigSource = {
   /** Defaults are the options applied to all fields. */
-  defaults: DashboardFieldConfig;
+  defaults: NotebookFieldConfig;
   /** Overrides are the options applied to specific fields overriding the defaults. */
-  overrides: DashboardV2Beta1FieldConfigSourceOverrides[];
+  overrides: NotebookV2Beta2FieldConfigSourceOverrides[];
 };
-export type DashboardVizConfigSpec = {
-  fieldConfig: DashboardFieldConfigSource;
+export type NotebookVizConfigSpec = {
+  fieldConfig: NotebookFieldConfigSource;
   options: {
     [key: string]: object;
   };
 };
-export type DashboardVizConfigKind = {
+export type NotebookVizConfigKind = {
   /** The group is the plugin ID */
   group: string;
   kind: string;
-  spec: DashboardVizConfigSpec;
+  spec: NotebookVizConfigSpec;
   version: string;
 };
-export type DashboardPanelSpec = {
-  data: DashboardQueryGroupKind;
+export type NotebookPanelSpec = {
+  data: NotebookQueryGroupKind;
   /** Shown in a info icon tooltip next to panel title */
   description?: string;
   id: number;
-  links: DashboardDataLink[];
+  links: NotebookDataLink[];
   /** Shown in a sub header below the title. */
   subtitle?: string;
   title: string;
   transparent?: boolean;
-  vizConfig: DashboardVizConfigKind;
+  vizConfig: NotebookVizConfigKind;
 };
-export type DashboardPanelKind = {
+export type NotebookPanelKind = {
   kind: string;
-  spec: DashboardPanelSpec;
+  spec: NotebookPanelSpec;
 };
-export type DashboardPanelKindOrLibraryPanelKind = {
-  LibraryPanelKind?: DashboardLibraryPanelKind;
-  PanelKind?: DashboardPanelKind;
+export type NotebookCellKindOrPanelKindOrLibraryPanelKind = {
+  CellKind?: NotebookCellKind;
+  LibraryPanelKind?: NotebookLibraryPanelKind;
+  PanelKind?: NotebookPanelKind;
 };
-export type DashboardConditionalRenderingDataSpec = {
-  value: boolean;
-};
-export type DashboardConditionalRenderingDataKind = {
-  kind: string;
-  spec: DashboardConditionalRenderingDataSpec;
-};
-export type DashboardConditionalRenderingTimeRangeSizeSpec = {
-  value: string;
-};
-export type DashboardConditionalRenderingTimeRangeSizeKind = {
-  kind: string;
-  spec: DashboardConditionalRenderingTimeRangeSizeSpec;
-};
-export type DashboardConditionalRenderingVariableSpec = {
-  operator: string;
-  value: string;
-  variable: string;
-};
-export type DashboardConditionalRenderingVariableKind = {
-  kind: string;
-  spec: DashboardConditionalRenderingVariableSpec;
-};
-export type DashboardConditionalRenderingVariableKindOrConditionalRenderingDataKindOrConditionalRenderingTimeRangeSizeKind =
-  {
-    ConditionalRenderingDataKind?: DashboardConditionalRenderingDataKind;
-    ConditionalRenderingTimeRangeSizeKind?: DashboardConditionalRenderingTimeRangeSizeKind;
-    ConditionalRenderingVariableKind?: DashboardConditionalRenderingVariableKind;
-  };
-export type DashboardConditionalRenderingGroupSpec = {
-  condition: string;
-  items: DashboardConditionalRenderingVariableKindOrConditionalRenderingDataKindOrConditionalRenderingTimeRangeSizeKind[];
-  visibility: string;
-};
-export type DashboardConditionalRenderingGroupKind = {
-  kind: string;
-  spec: DashboardConditionalRenderingGroupSpec;
-};
-export type DashboardElementReference = {
+export type NotebookElementReference = {
   kind: string;
   name: string;
 };
-export type DashboardAutoGridRepeatOptions = {
-  mode: string;
-  value: string;
+export type NotebookNotebookLayoutItemSpec = {
+  collapsed?: boolean;
+  element: NotebookElementReference;
+  source: string;
 };
-export type DashboardAutoGridLayoutItemSpec = {
-  conditionalRendering?: DashboardConditionalRenderingGroupKind;
-  element: DashboardElementReference;
-  repeat?: DashboardAutoGridRepeatOptions;
-};
-export type DashboardAutoGridLayoutItemKind = {
+export type NotebookNotebookLayoutItemKind = {
   kind: string;
-  spec: DashboardAutoGridLayoutItemSpec;
+  spec: NotebookNotebookLayoutItemSpec;
 };
-export type DashboardAutoGridLayoutSpec = {
-  columnWidth?: number;
-  columnWidthMode: string;
-  fillScreen?: boolean;
-  items: DashboardAutoGridLayoutItemKind[];
-  maxColumnCount?: number;
-  rowHeight?: number;
-  rowHeightMode: string;
+export type NotebookNotebookLayoutSpec = {
+  cells: NotebookNotebookLayoutItemKind[];
 };
-export type DashboardAutoGridLayoutKind = {
+export type NotebookNotebookLayoutKind = {
   kind: string;
-  spec: DashboardAutoGridLayoutSpec;
+  spec: NotebookNotebookLayoutSpec;
 };
-export type DashboardRepeatOptions = {
-  direction?: string;
-  maxPerRow?: number;
-  mode: string;
-  value: string;
-};
-export type DashboardGridLayoutItemSpec = {
-  /** reference to a PanelKind from dashboard.spec.elements Expressed as JSON Schema reference */
-  element: DashboardElementReference;
-  height: number;
-  repeat?: DashboardRepeatOptions;
-  width: number;
-  x: number;
-  y: number;
-};
-export type DashboardGridLayoutItemKind = {
-  kind: string;
-  spec: DashboardGridLayoutItemSpec;
-};
-export type DashboardGridLayoutSpec = {
-  items: DashboardGridLayoutItemKind[];
-};
-export type DashboardGridLayoutKind = {
-  kind: string;
-  spec: DashboardGridLayoutSpec;
-};
-export type DashboardTabRepeatOptions = {
-  mode: string;
-  value: string;
-};
-export type DashboardV2Beta1AdhocVariableKindDatasource = {
-  name?: string;
-};
-export type DashboardAdHocFilterWithLabels = {
-  /** @deprecated */
-  condition?: string;
-  forceEdit?: boolean;
-  key: string;
-  keyLabel?: string;
-  operator: string;
-  origin?: string;
-  value: string;
-  valueLabels?: string[];
-  values?: string[];
-};
-export type DashboardStringOrFloat64 = {
-  Float64?: number;
-  String?: string;
-};
-export type DashboardMetricFindValue = {
-  expandable?: boolean;
-  group?: string;
-  text: string;
-  value?: DashboardStringOrFloat64;
-};
-export type DashboardDatasourceControlSourceRef = {
-  /** The plugin type-id */
-  group: string;
-  type: string;
-};
-export type DashboardAdhocVariableSpec = {
-  allowCustomValue: boolean;
-  baseFilters: DashboardAdHocFilterWithLabels[];
-  defaultKeys: DashboardMetricFindValue[];
-  description?: string;
-  /** Whether the group-by operator is enabled in the ad hoc filter combobox. */
-  enableGroupBy?: boolean;
-  filters: DashboardAdHocFilterWithLabels[];
-  hide: string;
-  label?: string;
-  name: string;
-  origin?: DashboardDatasourceControlSourceRef;
-  skipUrlSync: boolean;
-};
-export type DashboardAdhocVariableKind = {
-  datasource?: DashboardV2Beta1AdhocVariableKindDatasource;
-  group: string;
-  kind: string;
-  labels?: {
-    [key: string]: string;
-  };
-  spec: DashboardAdhocVariableSpec;
-};
-export type DashboardStringOrArrayOfString = {
-  ArrayOfString?: string[];
-  String?: string;
-};
-export type DashboardVariableOption = {
-  /** Additional properties for multi-props variables */
-  properties?: {
-    [key: string]: string;
-  };
-  /** Whether the option is selected or not */
-  selected?: boolean;
-  /** Text to be displayed for the option */
-  text: DashboardStringOrArrayOfString;
-  /** Value of the option */
-  value: DashboardStringOrArrayOfString;
-};
-export type DashboardConstantVariableSpec = {
-  current: DashboardVariableOption;
-  description?: string;
-  hide: string;
-  label?: string;
-  name: string;
-  origin?: DashboardDatasourceControlSourceRef;
-  query: string;
-  skipUrlSync: boolean;
-};
-export type DashboardConstantVariableKind = {
-  kind: string;
-  spec: DashboardConstantVariableSpec;
-};
-export type DashboardCustomVariableSpec = {
-  allValue?: string;
-  allowCustomValue: boolean;
-  current: DashboardVariableOption;
-  description?: string;
-  hide: string;
-  includeAll: boolean;
-  label?: string;
-  multi: boolean;
-  name: string;
-  options: DashboardVariableOption[];
-  origin?: DashboardDatasourceControlSourceRef;
-  query: string;
-  skipUrlSync: boolean;
-  valuesFormat?: string;
-};
-export type DashboardCustomVariableKind = {
-  kind: string;
-  spec: DashboardCustomVariableSpec;
-};
-export type DashboardDatasourceVariableSpec = {
-  allValue?: string;
-  allowCustomValue: boolean;
-  current: DashboardVariableOption;
-  description?: string;
-  hide: string;
-  includeAll: boolean;
-  label?: string;
-  multi: boolean;
-  name: string;
-  options: DashboardVariableOption[];
-  origin?: DashboardDatasourceControlSourceRef;
-  pluginId: string;
-  refresh: string;
-  regex: string;
-  skipUrlSync: boolean;
-};
-export type DashboardDatasourceVariableKind = {
-  kind: string;
-  spec: DashboardDatasourceVariableSpec;
-};
-export type DashboardV2Beta1GroupByVariableKindDatasource = {
-  name?: string;
-};
-export type DashboardGroupByVariableSpec = {
-  current: DashboardVariableOption;
-  defaultValue?: DashboardVariableOption;
-  description?: string;
-  hide: string;
-  label?: string;
-  multi: boolean;
-  name: string;
-  options: DashboardVariableOption[];
-  origin?: DashboardDatasourceControlSourceRef;
-  skipUrlSync: boolean;
-};
-export type DashboardGroupByVariableKind = {
-  datasource?: DashboardV2Beta1GroupByVariableKindDatasource;
-  group: string;
-  kind: string;
-  labels?: {
-    [key: string]: string;
-  };
-  spec: DashboardGroupByVariableSpec;
-};
-export type DashboardIntervalVariableSpec = {
-  auto: boolean;
-  auto_count: number;
-  auto_min: string;
-  current: DashboardVariableOption;
-  description?: string;
-  hide: string;
-  label?: string;
-  name: string;
-  options: DashboardVariableOption[];
-  origin?: DashboardDatasourceControlSourceRef;
-  query: string;
-  refresh: string;
-  skipUrlSync: boolean;
-};
-export type DashboardIntervalVariableKind = {
-  kind: string;
-  spec: DashboardIntervalVariableSpec;
-};
-export type DashboardQueryVariableSpec = {
-  allValue?: string;
-  allowCustomValue: boolean;
-  current: DashboardVariableOption;
-  definition?: string;
-  description?: string;
-  hide: string;
-  includeAll: boolean;
-  label?: string;
-  multi: boolean;
-  name: string;
-  options: DashboardVariableOption[];
-  origin?: DashboardDatasourceControlSourceRef;
-  placeholder?: string;
-  query: DashboardDataQueryKind;
-  refresh: string;
-  regex: string;
-  regexApplyTo?: string;
-  skipUrlSync: boolean;
-  sort: string;
-  staticOptions?: DashboardVariableOption[];
-  staticOptionsOrder?: string;
-};
-export type DashboardQueryVariableKind = {
-  kind: string;
-  spec: DashboardQueryVariableSpec;
-};
-export type DashboardSwitchVariableSpec = {
-  current: string;
-  description?: string;
-  disabledValue: string;
-  enabledValue: string;
-  hide: string;
-  label?: string;
-  name: string;
-  origin?: DashboardDatasourceControlSourceRef;
-  skipUrlSync: boolean;
-};
-export type DashboardSwitchVariableKind = {
-  kind: string;
-  spec: DashboardSwitchVariableSpec;
-};
-export type DashboardTextVariableSpec = {
-  current: DashboardVariableOption;
-  description?: string;
-  hide: string;
-  label?: string;
-  name: string;
-  origin?: DashboardDatasourceControlSourceRef;
-  query: string;
-  skipUrlSync: boolean;
-};
-export type DashboardTextVariableKind = {
-  kind: string;
-  spec: DashboardTextVariableSpec;
-};
-export type DashboardQueryVariableKindOrTextVariableKindOrConstantVariableKindOrDatasourceVariableKindOrIntervalVariableKindOrCustomVariableKindOrGroupByVariableKindOrAdhocVariableKindOrSwitchVariableKind =
-  {
-    AdhocVariableKind?: DashboardAdhocVariableKind;
-    ConstantVariableKind?: DashboardConstantVariableKind;
-    CustomVariableKind?: DashboardCustomVariableKind;
-    DatasourceVariableKind?: DashboardDatasourceVariableKind;
-    GroupByVariableKind?: DashboardGroupByVariableKind;
-    IntervalVariableKind?: DashboardIntervalVariableKind;
-    QueryVariableKind?: DashboardQueryVariableKind;
-    SwitchVariableKind?: DashboardSwitchVariableKind;
-    TextVariableKind?: DashboardTextVariableKind;
-  };
-export type DashboardTabsLayoutTabSpec = {
-  conditionalRendering?: DashboardConditionalRenderingGroupKind;
-  layout: DashboardGridLayoutKindOrRowsLayoutKindOrAutoGridLayoutKindOrTabsLayoutKind;
-  repeat?: DashboardTabRepeatOptions;
-  title?: string;
-  variables?: DashboardQueryVariableKindOrTextVariableKindOrConstantVariableKindOrDatasourceVariableKindOrIntervalVariableKindOrCustomVariableKindOrGroupByVariableKindOrAdhocVariableKindOrSwitchVariableKind[];
-};
-export type DashboardTabsLayoutTabKind = {
-  kind: string;
-  spec: DashboardTabsLayoutTabSpec;
-};
-export type DashboardTabsLayoutSpec = {
-  tabs: DashboardTabsLayoutTabKind[];
-};
-export type DashboardTabsLayoutKind = {
-  kind: string;
-  spec: DashboardTabsLayoutSpec;
-};
-export type DashboardGridLayoutKindOrAutoGridLayoutKindOrTabsLayoutKindOrRowsLayoutKind = {
-  AutoGridLayoutKind?: DashboardAutoGridLayoutKind;
-  GridLayoutKind?: DashboardGridLayoutKind;
-  RowsLayoutKind?: DashboardRowsLayoutKind;
-  TabsLayoutKind?: DashboardTabsLayoutKind;
-};
-export type DashboardRowRepeatOptions = {
-  mode: string;
-  value: string;
-};
-export type DashboardRowsLayoutRowSpec = {
-  collapse?: boolean;
-  conditionalRendering?: DashboardConditionalRenderingGroupKind;
-  fillScreen?: boolean;
-  hideHeader?: boolean;
-  layout: DashboardGridLayoutKindOrAutoGridLayoutKindOrTabsLayoutKindOrRowsLayoutKind;
-  repeat?: DashboardRowRepeatOptions;
-  title?: string;
-  variables?: DashboardQueryVariableKindOrTextVariableKindOrConstantVariableKindOrDatasourceVariableKindOrIntervalVariableKindOrCustomVariableKindOrGroupByVariableKindOrAdhocVariableKindOrSwitchVariableKind[];
-};
-export type DashboardRowsLayoutRowKind = {
-  kind: string;
-  spec: DashboardRowsLayoutRowSpec;
-};
-export type DashboardRowsLayoutSpec = {
-  rows: DashboardRowsLayoutRowKind[];
-};
-export type DashboardRowsLayoutKind = {
-  kind: string;
-  spec: DashboardRowsLayoutSpec;
-};
-export type DashboardGridLayoutKindOrRowsLayoutKindOrAutoGridLayoutKindOrTabsLayoutKind = {
-  AutoGridLayoutKind?: DashboardAutoGridLayoutKind;
-  GridLayoutKind?: DashboardGridLayoutKind;
-  RowsLayoutKind?: DashboardRowsLayoutKind;
-  TabsLayoutKind?: DashboardTabsLayoutKind;
-};
-export type DashboardDashboardLink = {
-  /** If true, all dashboards links will be displayed in a dropdown. If false, all dashboards links will be displayed side by side. Only valid if the type is dashboards */
-  asDropdown: boolean;
-  /** Icon name to be displayed with the link */
-  icon: string;
-  /** If true, includes current template variables values in the link as query params */
-  includeVars: boolean;
-  /** If true, includes current time range in the link as query params */
-  keepTime: boolean;
-  /** The source that registered the link (if any) */
-  origin?: DashboardDatasourceControlSourceRef;
-  /** Placement can be used to display the link somewhere else on the dashboard other than above the visualisations. */
-  placement?: string;
-  /** List of tags to limit the linked dashboards. If empty, all dashboards will be displayed. Only valid if the type is dashboards */
-  tags: string[];
-  /** If true, the link will be opened in a new tab */
-  targetBlank: boolean;
-  /** Title to display with the link */
-  title: string;
-  /** Tooltip to display when the user hovers their mouse over it */
-  tooltip: string;
-  /** Link type. Accepted values are dashboards (to refer to another dashboard) and link (to refer to an external resource) FIXME: The type is generated as `type: DashboardLinkType | dashboardLinkType.Link;` but it should be `type: DashboardLinkType` */
-  type: string;
-  /** Link URL. Only required/valid if the type is link */
-  url?: string;
-};
-export type DashboardTimeRangeOption = {
+export type NotebookTimeRangeOption = {
   display: string;
   from: string;
   to: string;
 };
-export type DashboardTimeSettingsSpec = {
+export type NotebookTimeSettingsSpec = {
   /** Refresh rate of dashboard. Represented via interval string, e.g. "5s", "1m", "1h", "1d". v1: refresh */
   autoRefresh: string;
   /** Interval options available in the refresh picker dropdown. v1: timepicker.refresh_intervals */
@@ -1358,7 +769,7 @@ export type DashboardTimeSettingsSpec = {
   /** Override the now time by entering a time delay. Use this option to accommodate known delays in data aggregation to avoid null values. v1: timepicker.nowDelay */
   nowDelay?: string;
   /** Selectable options available in the time picker dropdown. Has no effect on provisioned dashboard. v1: timepicker.quick_ranges , not exposed in the UI */
-  quickRanges?: DashboardTimeRangeOption[];
+  quickRanges?: NotebookTimeRangeOption[];
   /** Timezone of dashboard. Accepted values are IANA TZDB zone ID or "browser" or "utc". */
   timezone?: string;
   /** End time range for dashboard. Accepted values are relative time strings like "now-6h" or absolute time strings like "2020-07-10T08:00:00.000Z". */
@@ -1366,57 +777,24 @@ export type DashboardTimeSettingsSpec = {
   /** Day when the week starts. Expressed by the name of the day in lowercase, e.g. "monday". */
   weekStart?: string;
 };
-export type DashboardSpec = {
-  annotations: DashboardAnnotationQueryKind[];
-  /** Configuration of dashboard cursor sync behavior. "Off" for no shared crosshair or tooltip (default). "Crosshair" for shared crosshair. "Tooltip" for shared crosshair AND shared tooltip. */
-  cursorSync: string;
-  /** Description of dashboard. */
+export type NotebookSpec = {
   description?: string;
-  /** Whether a dashboard is editable or not. */
-  editable?: boolean;
   elements: {
-    [key: string]: DashboardPanelKindOrLibraryPanelKind;
+    [key: string]: NotebookCellKindOrPanelKindOrLibraryPanelKind;
   };
-  layout: DashboardGridLayoutKindOrRowsLayoutKindOrAutoGridLayoutKindOrTabsLayoutKind;
-  /** Links with references to other dashboards or external websites. */
-  links: DashboardDashboardLink[];
-  /** When set to true, the dashboard will redraw panels at an interval matching the pixel width. This will keep data "moving left" regardless of the query refresh rate. This setting helps avoid dashboards presenting stale live data. */
-  liveNow?: boolean;
-  /** When set to true, the dashboard will load all panels in the dashboard when it's loaded. */
-  preload: boolean;
-  /** Plugins only. The version of the dashboard installed together with the plugin. This is used to determine if the dashboard should be updated when the plugin is updated. */
-  revision?: number;
-  /** Tags associated with dashboard. */
+  layout: NotebookNotebookLayoutKind;
   tags: string[];
-  timeSettings: DashboardTimeSettingsSpec;
-  /** Title of dashboard. */
+  timeSettings: NotebookTimeSettingsSpec;
   title: string;
-  /** Configured template variables. */
-  variables: DashboardQueryVariableKindOrTextVariableKindOrConstantVariableKindOrDatasourceVariableKindOrIntervalVariableKindOrCustomVariableKindOrGroupByVariableKindOrAdhocVariableKindOrSwitchVariableKind[];
 };
-export type DashboardConversionStatus = {
-  /** The error message from the conversion. Empty if the conversion has not failed. */
-  error?: string;
-  /** Whether from another version has failed. If true, means that the dashboard is not valid, and the caller should instead fetch the stored version. */
-  failed: boolean;
-  /** The original value map[string]any */
-  source?: object;
-  /** The version which was stored when the dashboard was created / updated. Fetching this version should always succeed. */
-  storedVersion?: string;
-};
-export type DashboardStatus = {
-  /** Optional conversion status. */
-  conversion?: DashboardConversionStatus;
-};
-export type Dashboard = {
+export type Notebook = {
   /** APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources */
   apiVersion?: string;
   /** Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds */
   kind?: string;
   metadata: ObjectMeta;
-  /** Spec is the spec of the Dashboard */
-  spec: DashboardSpec;
-  status: DashboardStatus;
+  /** Spec is the spec of the Notebook */
+  spec: NotebookSpec;
 };
 export type ListMeta = {
   /** continue may be set if the user set a limit on the number of items returned, and indicates that the server has more data available. The value is opaque and may be used to issue another request to the endpoint that served this list to retrieve the next set of available objects. Continuing a consistent list may not be possible if the server configuration has changed or more than a few minutes have passed. The resourceVersion field returned when using this continue value will be identical to the value in the first response, unless you have received this token from an error message. */
@@ -1428,10 +806,10 @@ export type ListMeta = {
   /** Deprecated: selfLink is a legacy read-only field that is no longer populated by the system. */
   selfLink?: string;
 };
-export type DashboardList = {
+export type NotebookList = {
   /** APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources */
   apiVersion?: string;
-  items: Dashboard[];
+  items: Notebook[];
   /** Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds */
   kind?: string;
   metadata: ListMeta;
@@ -1481,86 +859,16 @@ export type Status = {
   status?: string;
 };
 export type Patch = object;
-export type AnnotationActions = {
-  canAdd: boolean;
-  canDelete: boolean;
-  canEdit: boolean;
-};
-export type AnnotationPermission = {
-  dashboard: AnnotationActions;
-};
-export type DashboardAccess = {
-  annotationsPermissions: AnnotationPermission;
-  canAdmin: boolean;
-  canDelete: boolean;
-  canEdit: boolean;
-  /** The permissions part */
-  canSave: boolean;
-  canStar: boolean;
-  isPublic: boolean;
-  /** Metadata fields */
-  slug?: string;
-  url?: string;
-};
-export type DashboardWithAccessInfo = {
-  access: DashboardAccess;
-  /** APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources */
-  apiVersion?: string;
-  /** Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds */
-  kind?: string;
-  metadata: ObjectMeta;
-  /** Spec is the spec of the Dashboard */
-  spec: DashboardSpec;
-  status: DashboardStatus;
-};
-export type VariableSpec = {
-  AdhocVariableKind?: DashboardAdhocVariableKind;
-  ConstantVariableKind?: DashboardConstantVariableKind;
-  CustomVariableKind?: DashboardCustomVariableKind;
-  DatasourceVariableKind?: DashboardDatasourceVariableKind;
-  GroupByVariableKind?: DashboardGroupByVariableKind;
-  IntervalVariableKind?: DashboardIntervalVariableKind;
-  QueryVariableKind?: DashboardQueryVariableKind;
-  SwitchVariableKind?: DashboardSwitchVariableKind;
-  TextVariableKind?: DashboardTextVariableKind;
-};
-export type Variable = {
-  /** APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources */
-  apiVersion?: string;
-  /** Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds */
-  kind?: string;
-  metadata: ObjectMeta;
-  /** Spec is the spec of the Variable */
-  spec: VariableSpec;
-};
-export type VariableList = {
-  /** APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources */
-  apiVersion?: string;
-  items: Variable[];
-  /** Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds */
-  kind?: string;
-  metadata: ListMeta;
-};
 export const {
   useGetApiResourcesQuery,
   useLazyGetApiResourcesQuery,
-  useListDashboardQuery,
-  useLazyListDashboardQuery,
-  useCreateDashboardMutation,
-  useGetDashboardQuery,
-  useLazyGetDashboardQuery,
-  useReplaceDashboardMutation,
-  useDeleteDashboardMutation,
-  useUpdateDashboardMutation,
-  useGetDashboardDtoQuery,
-  useLazyGetDashboardDtoQuery,
-  useListVariableQuery,
-  useLazyListVariableQuery,
-  useCreateVariableMutation,
-  useDeletecollectionVariableMutation,
-  useGetVariableQuery,
-  useLazyGetVariableQuery,
-  useReplaceVariableMutation,
-  useDeleteVariableMutation,
-  useUpdateVariableMutation,
+  useListNotebookQuery,
+  useLazyListNotebookQuery,
+  useCreateNotebookMutation,
+  useDeletecollectionNotebookMutation,
+  useGetNotebookQuery,
+  useLazyGetNotebookQuery,
+  useReplaceNotebookMutation,
+  useDeleteNotebookMutation,
+  useUpdateNotebookMutation,
 } = injectedRtkApi;

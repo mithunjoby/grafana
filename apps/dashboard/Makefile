@@ -6,7 +6,18 @@ MIGRATION_TESTS = TestMigrate$$|TestMigrateSingleVersion|TestMigrateDevDashboard
 GOLDEN_TESTS = TestDashboardConversionToAllVersions|TestMigratedDashboardsConversion
 
 .PHONY: generate
-generate: do-generate post-generate-cleanup ## Run Grafana App SDK code generation
+generate: pre-generate do-generate post-generate-cleanup ## Run Grafana App SDK code generation
+
+.PHONY: pre-generate
+pre-generate: ## Prepare the CUE sources before code generation
+	# The Notebook kind is served at v2beta2 and its spec reuses the dashboard v2 leaf types, but the
+	# SDK only resolves schema references inside the CUE package named after the manifest version,
+	# so v2beta2 needs its own copy of the v2 dashboard spec. Copying it here keeps the two in sync.
+	@echo "// This file is managed by the apps/dashboard Makefile - DO NOT EDIT MANUALLY" > ./kinds/v2beta2/dashboard_spec.cue
+	@echo "// Source: apps/dashboard/kinds/v2/dashboard_spec.cue" >> ./kinds/v2beta2/dashboard_spec.cue
+	@echo "// To sync changes, run: make generate in apps/dashboard" >> ./kinds/v2beta2/dashboard_spec.cue
+	@echo "" >> ./kinds/v2beta2/dashboard_spec.cue
+	@sed 's|^package v2$$|package v2beta2|' ./kinds/v2/dashboard_spec.cue >> ./kinds/v2beta2/dashboard_spec.cue
 
 .PHONY: do-generate
 do-generate: install-app-sdk update-app-sdk ## Run Grafana App SDK code generation

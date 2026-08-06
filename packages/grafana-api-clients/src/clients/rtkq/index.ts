@@ -8,6 +8,7 @@ import { generatedAPI as dashboardAPIv0alpha1 } from './dashboard/v0alpha1';
 import { generatedAPI as dashboardAPIv1beta1 } from './dashboard/v1beta1';
 import { generatedAPI as dashboardAPIv2 } from './dashboard/v2';
 import { generatedAPI as dashboardAPIv2beta1 } from './dashboard/v2beta1';
+import { generatedAPI as dashboardAPIv2beta2 } from './dashboard/v2beta2';
 import { generatedAPI as folderAPIv1beta1 } from './folder/v1beta1';
 import { generatedAPI as historianAlertingAPIv0alpha1 } from './historian.alerting/v0alpha1';
 import { generatedAPI as iamAPIv0alpha1 } from './iam/v0alpha1';
@@ -51,6 +52,7 @@ export const allMiddleware = [
   dashboardAPIv1beta1.middleware,
   dashboardAPIv2.middleware,
   dashboardAPIv2beta1.middleware,
+  dashboardAPIv2beta2.middleware,
   pluginsAPIv0alpha1.middleware,
   preferencesAPIv1.middleware,
   // GENERATED:MIDDLEWARE
@@ -80,6 +82,7 @@ export const allReducers = {
   [dashboardAPIv1beta1.reducerPath]: dashboardAPIv1beta1.reducer,
   [dashboardAPIv2.reducerPath]: dashboardAPIv2.reducer,
   [dashboardAPIv2beta1.reducerPath]: dashboardAPIv2beta1.reducer,
+  [dashboardAPIv2beta2.reducerPath]: dashboardAPIv2beta2.reducer,
   [pluginsAPIv0alpha1.reducerPath]: pluginsAPIv0alpha1.reducer,
   [preferencesAPIv1.reducerPath]: preferencesAPIv1.reducer,
   // GENERATED:REDUCER

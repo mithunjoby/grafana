@@ -14,6 +14,7 @@ import (
 	dashboardV2 "github.com/grafana/grafana/apps/dashboard/pkg/apis/dashboard/v2"
 	dashboardV2alpha1 "github.com/grafana/grafana/apps/dashboard/pkg/apis/dashboard/v2alpha1"
 	dashboardV2beta1 "github.com/grafana/grafana/apps/dashboard/pkg/apis/dashboard/v2beta1"
+	dashboardV2beta2 "github.com/grafana/grafana/apps/dashboard/pkg/apis/dashboard/v2beta2"
 	"github.com/grafana/grafana/apps/dashboard/pkg/migration"
 	"github.com/grafana/grafana/apps/dashboard/pkg/migration/schemaversion"
 	"github.com/grafana/grafana/pkg/apimachinery/utils"
@@ -42,11 +43,11 @@ func (b *DashboardsAPIBuilder) Mutate(ctx context.Context, a admission.Attribute
 	case dashboardV2beta1.VariableResourceInfo.GroupVersionResource().Resource:
 		return mutateVariable(a)
 
-	// Reachability invariant: this case only fires when the apiserver routes a
-	// request to the v2beta1 Notebook storage, which is registered in
-	// UpdateAPIGroupInfo behind FlagDashboardNotebooks (see register.go).
-	// Notebooks need no mutation today; layout validation happens in Validate.
-	case dashboardV2beta1.NotebookResourceInfo.GroupVersionResource().Resource:
+	// Reachability invariant: notebook storage is always registered, but
+	// FlagDashboardNotebooks is gated per request in GetAuthorizer, so this case
+	// only fires when notebooks are enabled (see register.go). Notebooks need no
+	// mutation today; layout validation happens in Validate.
+	case dashboardV2beta2.NotebookResourceInfo.GroupVersionResource().Resource:
 		return nil
 
 	case dashboardV0.LIBRARY_PANEL_RESOURCE:

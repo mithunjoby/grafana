@@ -2,7 +2,7 @@ import { css, cx } from '@emotion/css';
 import DangerouslySetHtmlContent from 'dangerously-set-html-content';
 
 import { type GrafanaTheme2, renderTextPanelMarkdown } from '@grafana/data';
-import { type CellContentKind } from '@grafana/schema/apis/notebook/v2beta1';
+import { type CellContentKind } from '@grafana/schema/apis/notebook/v2beta2';
 import { useStyles2 } from '@grafana/ui';
 
 // Mirrors the text panel: renderTextPanelMarkdown sanitizes its output (XSS-safe) and the

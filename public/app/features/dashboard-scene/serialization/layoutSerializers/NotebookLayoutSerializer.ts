@@ -3,7 +3,7 @@ import {
   type PanelKind as DashboardPanelKind,
   type Spec as DashboardV2Spec,
 } from '@grafana/schema/apis/dashboard.grafana.app/v2';
-import { type NotebookElement, type NotebookLayoutKind } from '@grafana/schema/apis/notebook/v2beta1';
+import { type NotebookElement, type NotebookLayoutKind } from '@grafana/schema/apis/notebook/v2beta2';
 
 import { NotebookCellItem } from '../../scene/layout-notebook/NotebookCellItem';
 import { NotebookLayoutManager } from '../../scene/layout-notebook/NotebookLayoutManager';

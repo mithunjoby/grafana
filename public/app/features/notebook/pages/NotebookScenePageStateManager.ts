@@ -1,6 +1,6 @@
 import { type Spec as DashboardV2Spec } from '@grafana/schema/apis/dashboard.grafana.app/v2';
-import { type Spec as NotebookSpec } from '@grafana/schema/apis/notebook/v2beta1';
-import { dashboardAPIv2beta1 } from 'app/api/clients/dashboard/v2beta1';
+import { type Spec as NotebookSpec } from '@grafana/schema/apis/notebook/v2beta2';
+import { dashboardAPIv2beta2 } from 'app/api/clients/dashboard/v2beta2';
 import { type Resource } from 'app/features/apiserver/types';
 import { type DashboardWithAccessInfo } from 'app/features/dashboard/api/types';
 import {
@@ -30,7 +30,7 @@ export class NotebookScenePageStateManager extends DashboardScenePageStateManage
     // subscribe: false makes this a one-shot loader fetch that does not leave a cache
     // subscription open for every notebook opened during the session.
     const result = await dispatch(
-      dashboardAPIv2beta1.endpoints.getNotebook.initiate({ name: options.uid }, { subscribe: false })
+      dashboardAPIv2beta2.endpoints.getNotebook.initiate({ name: options.uid }, { subscribe: false })
     );
     if (result && 'error' in result) {
       throw result.error;

@@ -1,10 +1,12 @@
 package kinds
 
 import (
-	v2beta1 "github.com/grafana/grafana/sdkkinds/dashboard/v2beta1"
+	v2beta2 "github.com/grafana/grafana/sdkkinds/dashboard/v2beta2"
 )
 
-notebookV2beta1: {
+// Notebook is served at v2beta2 while its schema is experimental, on leaf types copied from
+// dashboard v2. See v2beta2/notebook_spec.cue.
+notebookV2beta2: {
 	kind:       "Notebook"
 	pluralName: "Notebooks"
 	validation: {
@@ -14,6 +16,6 @@ notebookV2beta1: {
 		operations: ["CREATE", "UPDATE"]
 	}
 	schema: {
-		spec: v2beta1.NotebookSpec
+		spec: v2beta2.NotebookSpec
 	}
 }

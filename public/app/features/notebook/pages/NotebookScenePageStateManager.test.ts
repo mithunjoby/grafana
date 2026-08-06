@@ -4,8 +4,8 @@ import { of } from 'rxjs';
 import { createFetchResponse } from 'test/helpers/createFetchResponse';
 
 import { type BackendSrv, setBackendSrv } from '@grafana/runtime';
-import { type Spec as NotebookSpec, defaultSpec as defaultNotebookSpec } from '@grafana/schema/apis/notebook/v2beta1';
-import { dashboardAPIv2beta1 } from 'app/api/clients/dashboard/v2beta1';
+import { type Spec as NotebookSpec, defaultSpec as defaultNotebookSpec } from '@grafana/schema/apis/notebook/v2beta2';
+import { dashboardAPIv2beta2 } from 'app/api/clients/dashboard/v2beta2';
 import { type Resource } from 'app/features/apiserver/types';
 import { NotebookLayoutManager } from 'app/features/dashboard-scene/scene/layout-notebook/NotebookLayoutManager';
 import { dispatch } from 'app/store/store';
@@ -23,11 +23,11 @@ jest.mock('@grafana/runtime', () => ({
 }));
 
 // The state manager dispatches the notebook query through the app store; route that dispatch to a
-// test store that carries the dashboard v2beta1 API so the RTK query actually runs.
+// test store that carries the dashboard v2beta2 API so the RTK query actually runs.
 const createTestStore = () =>
   configureStore({
-    reducer: { [dashboardAPIv2beta1.reducerPath]: dashboardAPIv2beta1.reducer },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(dashboardAPIv2beta1.middleware),
+    reducer: { [dashboardAPIv2beta2.reducerPath]: dashboardAPIv2beta2.reducer },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(dashboardAPIv2beta2.middleware),
   });
 
 let testStore: ReturnType<typeof createTestStore>;
@@ -42,7 +42,7 @@ jest.mock('app/store/store', () => {
 
 function notebookResource(): Resource<NotebookSpec> {
   return {
-    apiVersion: 'dashboard.grafana.app/v2beta1',
+    apiVersion: 'dashboard.grafana.app/v2beta2',
     kind: 'Notebook',
     metadata: { name: 'nb-1', resourceVersion: '1', creationTimestamp: '2026-07-01T00:00:00Z' },
     spec: {

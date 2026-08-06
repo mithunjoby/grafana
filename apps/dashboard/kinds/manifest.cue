@@ -254,7 +254,24 @@ manifest: {
 					searchFields: _dashboardSearchFields
 				},
 				globalVariableV2beta1,
-				notebookV2beta1,
+			]
+		}
+		// v2beta2 serves only Notebook. Its spec reuses the dashboard v2 leaf types, but the
+		// notebook schema is still experimental, so it cannot live in GA v2 where breaking
+		// schema changes are not allowed. Dashboard and GlobalVariable stay where they are:
+		// versions in this group do not need parity.
+		"v2beta2": {
+			codegen: {
+				ts: {
+					enabled: true
+					config: {
+						enumsAsUnionTypes: true
+					}
+				}
+				go: {enabled: true}
+			}
+			kinds: [
+				notebookV2beta2,
 			]
 		}
 		"v2": {

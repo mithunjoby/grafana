@@ -13,28 +13,28 @@ import (
 	"k8s.io/apiserver/pkg/authorization/authorizer"
 
 	dashv0 "github.com/grafana/grafana/apps/dashboard/pkg/apis/dashboard/v0alpha1"
-	dashv2beta1 "github.com/grafana/grafana/apps/dashboard/pkg/apis/dashboard/v2beta1"
+	dashv2beta2 "github.com/grafana/grafana/apps/dashboard/pkg/apis/dashboard/v2beta2"
 	"github.com/grafana/grafana/pkg/services/featuremgmt"
 )
 
 // newNotebook builds a notebook with a valid notebook layout; callers override
 // the layout kind to exercise rejection paths.
-func newNotebook(name string) *dashv2beta1.Notebook {
-	nb := &dashv2beta1.Notebook{}
+func newNotebook(name string) *dashv2beta2.Notebook {
+	nb := &dashv2beta2.Notebook{}
 	nb.SetName(name)
 	nb.Spec.Title = "My notebook"
-	nb.Spec.Layout = *dashv2beta1.NewNotebookNotebookLayoutKind()
+	nb.Spec.Layout = *dashv2beta2.NewNotebookNotebookLayoutKind()
 	return nb
 }
 
-func notebookAttributes(op admission.Operation, nb *dashv2beta1.Notebook, opts runtime.Object) admission.Attributes {
+func notebookAttributes(op admission.Operation, nb *dashv2beta2.Notebook, opts runtime.Object) admission.Attributes {
 	return admission.NewAttributesRecord(
 		nb,
 		nil,
-		dashv2beta1.NotebookResourceInfo.GroupVersionKind(),
+		dashv2beta2.NotebookResourceInfo.GroupVersionKind(),
 		"stacks-1",
 		nb.GetName(),
-		dashv2beta1.NotebookResourceInfo.GroupVersionResource(),
+		dashv2beta2.NotebookResourceInfo.GroupVersionResource(),
 		"",
 		op,
 		opts,
@@ -138,12 +138,22 @@ func setNotebooksToggle(t *testing.T, enabled bool) {
 func authzAttributes(resource, verb string) authorizer.Attributes {
 	return authorizer.AttributesRecord{
 		ResourceRequest: true,
-		APIGroup:        dashv2beta1.GROUP,
-		APIVersion:      dashv2beta1.VERSION,
+		APIGroup:        dashv2beta2.GROUP,
+		APIVersion:      dashv2beta2.VERSION,
 		Resource:        resource,
 		Verb:            verb,
 		Namespace:       "stacks-1",
 	}
+}
+
+// Admission is routed by request group version: builderAdmission looks the group
+// version up in a map built from GetGroupVersions and admits anything it does not
+// find. Notebooks are the only kind served at v2beta2, so dropping that group
+// version from the list would silently stop enforcing the notebook layout instead
+// of failing loudly.
+func TestDashboardsAPIBuilderNotebookGroupVersionIsAdmitted(t *testing.T) {
+	builder := &DashboardsAPIBuilder{}
+	require.Contains(t, builder.GetGroupVersions(), dashv2beta2.NotebookResourceInfo.GroupVersion())
 }
 
 // TestDashboardsAPIBuilderNotebookAuthorizer verifies that the notebook feature
@@ -157,7 +167,7 @@ func TestDashboardsAPIBuilderNotebookAuthorizer(t *testing.T) {
 		setNotebooksToggle(t, false)
 		for _, verb := range []string{"get", "list", "watch", "create", "update", "delete", "deletecollection"} {
 			t.Run(verb, func(t *testing.T) {
-				decision, reason, err := authz.Authorize(ctx, authzAttributes(dashv2beta1.NotebookResourceInfo.GetName(), verb))
+				decision, reason, err := authz.Authorize(ctx, authzAttributes(dashv2beta2.NotebookResourceInfo.GetName(), verb))
 				require.NoError(t, err)
 				require.Equal(t, authorizer.DecisionDeny, decision)
 				require.Equal(t, "notebooks feature is not enabled", reason)
@@ -171,7 +181,7 @@ func TestDashboardsAPIBuilderNotebookAuthorizer(t *testing.T) {
 		// surfaces a non-nil error; the notebook gate never returns an error, so a
 		// "no identity" error proves the request fell through rather than being
 		// short-circuited by the feature gate.
-		_, _, err := authz.Authorize(ctx, authzAttributes(dashv2beta1.NotebookResourceInfo.GetName(), "get"))
+		_, _, err := authz.Authorize(ctx, authzAttributes(dashv2beta2.NotebookResourceInfo.GetName(), "get"))
 		require.ErrorContains(t, err, "no identity found")
 	})
 

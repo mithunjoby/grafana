@@ -2,7 +2,7 @@ import {
   defaultSpec as defaultDashboardV2Spec,
   type Spec as DashboardV2Spec,
 } from '@grafana/schema/apis/dashboard.grafana.app/v2';
-import { type Spec as NotebookSpec } from '@grafana/schema/apis/notebook/v2beta1';
+import { type Spec as NotebookSpec } from '@grafana/schema/apis/notebook/v2beta2';
 import { type Resource } from 'app/features/apiserver/types';
 import { type DashboardWithAccessInfo } from 'app/features/dashboard/api/types';
 
